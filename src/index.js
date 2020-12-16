@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/App';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
-import ButtonsTester from './testers/ButtonsTester';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ButtonsTester />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
