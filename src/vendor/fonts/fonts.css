@@ -7,7 +7,7 @@
 @font-face {
   src: url('./Roboto-Black.ttf');
   font-family: 'Roboto Slab', serif;
-  font-weight: black;
+  font-weight: 700;
 }
 
 @font-face {
@@ -19,13 +19,13 @@
 @font-face {
   src: url('./Roboto-Black.ttf');
   font-family: 'Roboto', sans-serif;
-  font-weight: black;
+  font-weight: 900;
 }
 
 @font-face {
   src: url('./Roboto-Medium.ttf');
   font-family: 'Roboto', sans-serif;
-  font-weight: medium;
+  font-weight: 500;
 }
 
 @font-face {
