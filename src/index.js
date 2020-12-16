@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './components/app/App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import ButtonsTester from './testers/ButtonsTester';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ButtonsTester />
   </React.StrictMode>,
   document.getElementById('root')
 );

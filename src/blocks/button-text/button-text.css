@@ -1,0 +1,18 @@
+.button-text {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #2F71E5;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+}
+
+.button-text:hover {
+  text-decoration: underline;
+}
+
+.button-text:active {
+  color: #2355ac;
+}
