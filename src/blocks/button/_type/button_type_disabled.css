@@ -1,0 +1,5 @@
+.button_type_disabled {
+  background: #E6E8EB;
+  color: #B6BCBF;
+  cursor: default;
+}

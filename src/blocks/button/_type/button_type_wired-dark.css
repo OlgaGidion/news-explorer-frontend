@@ -1,0 +1,13 @@
+.button_type_wired-dark {
+  border: 1px #D1D2D6 solid;
+  color: black;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.button_type_wired-dark:hover {
+  border-color: black;
+}
+
+.button_type_wired-dark:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}

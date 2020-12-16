@@ -1,0 +1,13 @@
+.button_type_solid-blue {
+  background: #2F71E5;
+  color: white;
+  transition: background 0.15s;
+}
+
+.button_type_solid-blue:hover {
+  background: #347EFF;
+}
+
+.button_type_solid-blue:active {
+  background: #2A65CC;
+}
