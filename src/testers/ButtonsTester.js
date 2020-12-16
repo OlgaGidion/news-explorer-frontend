@@ -9,6 +9,7 @@ const ButtonsTester = () => {
       <div style={{background: 'gray', padding: '20px 0', margin: '20px 0'}}>
         <button className="button button_type_solid-white">I'm white round button</button>
         <button className="button button_type_solid-white button_small">Small</button>
+        <button className="button button_type_disabled">Small disabled</button>
       </div>
 
       <div style={{background: 'black', margin: '20px 0'}}>
@@ -21,8 +22,9 @@ const ButtonsTester = () => {
         <button className="button button_type_wired-dark button_small">I'm wired round button</button>
       </div>
 
-      <div style={{fontSize: '30px', fontFamily: 'Arial'}}>
+      <div style={{fontSize: '30px', fontFamily: 'sans-serif'}}>
         This text contains <button className="button-text">text button</button> inside
+
       </div>
     </>
   );
