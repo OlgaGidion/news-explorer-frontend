@@ -100,3 +100,11 @@
   font-family: 'Inter', sans-serif;
   font-weight: normal;
 }
+
+.button-text:hover {
+  text-decoration: underline;
+}
+
+.button-text:active {
+  color: #2355ac;
+}
