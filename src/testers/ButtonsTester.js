@@ -1,3 +1,5 @@
+import logoutDarkImage from '../images/logout-dark.svg'
+
 const ButtonsTester = () => {
   return (
     <>
@@ -19,7 +21,7 @@ const ButtonsTester = () => {
 
       <div style={{background: 'white', margin: '20px 0'}}>
         <button className="button button_type_wired-dark">I'm wired round button</button>
-        <button className="button button_type_wired-dark button_small">I'm wired round button</button>
+        <button className="button button_type_wired-dark button_small">I'm wired round button <img className="button__icon-right" src={logoutDarkImage} alt="icon" /></button>
       </div>
 
       <div style={{fontSize: '30px', fontFamily: 'sans-serif'}}>
