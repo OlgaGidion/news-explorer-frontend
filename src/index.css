@@ -47,18 +47,35 @@
 .button_type_wired-light {
   border: 1px white solid;
   color: white;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.button_type_wired-light:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.button_type_wired-light:active {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .button_type_wired-dark {
   border: 1px #D1D2D6 solid;
   color: black;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.button_type_wired-dark:hover {
+  border-color: black;
+}
+
+.button_type_wired-dark:active {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .button_type_disabled {
   background: #E6E8EB;
   color: #B6BCBF;
-  cursor: auto;
-  transition: none;
+  cursor: default;
 }
 
 .button_small {
