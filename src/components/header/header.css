@@ -19,6 +19,14 @@
   font-size: 20px;
 }
 
+.header__name_color_dark {
+  color: black;
+}
+
+.header__name_color_light {
+  color: white;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
@@ -26,7 +34,6 @@
 }
 
 .header__nav-button {
-  background-color: springgreen;
   height: 100%;
   margin-right: 32px;
   font-family: 'Roboto', sans-serif;
@@ -34,6 +41,18 @@
   font-size: 18px;
 }
 
-.header__nav-button_selected {
+.header__nav-button_color_dark {
+  color: black;
+}
+
+.header__nav-button_color_light {
+  color: white;
+}
+
+.header__nav-button_selected-dark {
   border-bottom: 3px solid #1A1B22 !important;
+}
+
+.header__nav-button_selected-light {
+  border-bottom: 3px solid white !important;
 }
