@@ -5,8 +5,8 @@ import './MainPage.css';
 const MainPage = () => {
   return (
     <main className="main-page">
-      <Header>
-        <Navigation />
+      <Header isDark={false}>
+        <Navigation isDark={false} />
       </Header>
     </main>
   );

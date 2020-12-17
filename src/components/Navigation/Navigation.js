@@ -1,10 +1,13 @@
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ isDark }) => {
+  const navButtonMod = isDark ? 'navigation-button_color_dark' : 'navigation-button_color_light';
+  const wiredButtonMod = isDark ? 'button-rounded_type_wired-dark' : 'button-rounded_type_wired-light';
+
   return (
     <nav className="navigation">
-      <button className="button navigation-button navigation-button_color_light navigation-button_selected">Главная</button>
-      <button className="button button-rounded button-rounded_type_wired-light button-rounded_small">Авторизоваться</button>
+      <button className={`button navigation-button ${navButtonMod} navigation-button_selected`}>Главная</button>
+      <button className={`button button-rounded ${wiredButtonMod} button-rounded_small`}>Авторизоваться</button>
     </nav>
   );
 };
