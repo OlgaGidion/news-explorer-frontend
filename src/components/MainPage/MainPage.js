@@ -1,5 +1,5 @@
-import Header from "../header/Header";
-import './main-page.css';
+import Header from "../Header/Header";
+import './MainPage.css';
 
 const MainPage = () => {
   return (

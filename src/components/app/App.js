@@ -1,5 +1,5 @@
-import MainPage from '../main-page/MainPage';
-import './app.css';
+import MainPage from '../MainPage/MainPage';
+import './App.css';
 
 const App = () => {
   return (
