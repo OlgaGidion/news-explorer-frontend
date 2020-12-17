@@ -3,7 +3,9 @@ import './main-page.css';
 
 const MainPage = () => {
   return (
-    <Header />
+    <main className="main-page">
+      <Header />
+    </main>
   );
 };
 

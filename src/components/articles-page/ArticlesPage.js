@@ -1,8 +1,11 @@
 import Header from "../header/Header";
+import './articles-page.css';
 
 const ArticlesPage = () => {
   return (
-    <Header />
+    <main className="articles-page">
+      <Header />
+    </main>
   );
 };
 

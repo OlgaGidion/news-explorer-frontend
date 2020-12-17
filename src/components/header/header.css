@@ -1,13 +1,16 @@
-/* * {
-  outline: 1px solid red !important;
-} */
-
 .header {
   height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0 104px;
+}
+
+.header_color_light {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header_type_dark {
   border-bottom: 1px solid #D1D2D6;
 }
 
