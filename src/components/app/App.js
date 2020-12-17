@@ -1,10 +1,10 @@
-import MainPage from '../main-page/MainPage';
+import ArticlesPage from '../articles-page/ArticlesPage';
 import './app.css';
 
 const App = () => {
   return (
     <div className="app">
-      <MainPage />
+      <ArticlesPage />
     </div>
   );
 };

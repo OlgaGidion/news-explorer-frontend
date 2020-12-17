@@ -1,10 +1,9 @@
 import Header from "../header/Header";
-import './main-page.css';
 
-const MainPage = () => {
+const ArticlesPage = () => {
   return (
     <Header />
   );
 };
 
-export default MainPage;
+export default ArticlesPage;
