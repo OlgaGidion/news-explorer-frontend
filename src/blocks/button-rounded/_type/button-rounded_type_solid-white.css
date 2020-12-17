@@ -1,13 +1,13 @@
-.button_type_solid-white {
+.button-rounded_type_solid-white {
   background: white;
   color: black;
   transition: background 0.15s;
 }
 
-.button_type_solid-white:hover {
+.button-rounded_type_solid-white:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.button_type_solid-white:active {
+.button-rounded_type_solid-white:active {
   background: rgba(255, 255, 255, 0.7);
 }

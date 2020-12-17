@@ -28,17 +28,12 @@
 .header__nav-button {
   background-color: springgreen;
   height: 100%;
-  padding: 0;
   margin-right: 32px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
 }
 
 .header__nav-button_selected {
-  border-bottom: 3px solid #1A1B22;
+  border-bottom: 3px solid #1A1B22 !important;
 }

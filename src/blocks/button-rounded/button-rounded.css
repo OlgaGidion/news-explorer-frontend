@@ -1,0 +1,12 @@
+@import url(./__icon-right/button-rounded__icon-right.css);
+
+.button-rounded {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  border-radius: 32px;
+  padding: 0 54px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
