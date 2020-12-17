@@ -7,10 +7,12 @@
 }
 
 .header_color_light {
+  color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header_color_dark {
+  color: black;
   border-bottom: 1px solid #D1D2D6;
 }
 
@@ -20,14 +22,6 @@
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   font-size: 20px;
-}
-
-.header__name_color_dark {
-  color: black;
-}
-
-.header__name_color_light {
-  color: white;
 }
 
 .header__nav {
