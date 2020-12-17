@@ -1,5 +1,6 @@
 .button-text {
   color: #2F71E5;
+  border: none;
 }
 
 .button-text:hover {

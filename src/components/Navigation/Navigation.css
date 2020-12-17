@@ -1,0 +1,28 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navigation-button {
+  border: none;
+  height: 100%;
+  margin-right: 32px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.navigation-button_color_dark {
+  color: #1A1B22;
+  border-bottom: 0 solid #1A1B22;
+}
+
+.navigation-button_color_light {
+  color: white;
+  border-bottom: 0 solid white;
+}
+
+.navigation-button_selected {
+  border-bottom-width: 3px;
+}
