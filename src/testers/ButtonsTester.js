@@ -1,4 +1,4 @@
-import logoutDarkImage from '../images/logout-dark.svg'
+import logoutDarkImage from '../images/logout-dark.svg';
 
 const ButtonsTester = () => {
   return (
