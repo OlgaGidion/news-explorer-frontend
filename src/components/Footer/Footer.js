@@ -1,6 +1,6 @@
-import './Footer.css';
 import githubImage from '../../images/github.svg';
 import facebookImage from '../../images/facebook.svg';
+import './Footer.css';
 
 const Footer = () => (
   <footer className="footer">
