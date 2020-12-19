@@ -5,31 +5,25 @@
 }
 
 @font-face {
-  src: url('./RobotoSlab-Bold.ttf');
-  font-family: 'Roboto Slab';
-  font-weight: 700;
-}
-
-@font-face {
-  src: url('./RobotoSlab-Regular.ttf');
+  src: url('./RobotoSlab-Regular.woff');
   font-family: 'Roboto Slab';
   font-weight: normal;
 }
 
 @font-face {
-  src: url('./Roboto-Black.ttf');
+  src: url('./Roboto-Black.woff');
   font-family: 'Roboto';
   font-weight: 900;
 }
 
 @font-face {
-  src: url('./Roboto-Medium.ttf');
+  src: url('./Roboto-Medium.woff');
   font-family: 'Roboto';
   font-weight: 500;
 }
 
 @font-face {
-  src: url('./Roboto-Regular.ttf');
+  src: url('./Roboto-Regular.woff');
   font-family: 'Roboto';
   font-weight: normal;
 }
