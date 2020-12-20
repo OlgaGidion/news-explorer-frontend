@@ -13,7 +13,7 @@ const MainPage = () => (
       <div className="main-page__content">
         <h1 className="main-page__headline">Что творится в мире?</h1>
         <p className="main-page__subline">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-        <SearchForm />
+        <SearchForm placeholder="Введите тему новости" buttonText="Искать" />
       </div>
     </div>
     <Footer />
