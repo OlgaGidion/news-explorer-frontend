@@ -1,4 +1,22 @@
 .main-page {
-  background: #333;
-  height: 300px;
+}
+
+.main-page__header {
+  background: url(../../images/main-page-image.png);
+  background-size: cover;
+  color: white;
+}
+
+.main-page__headline {
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 0.9;
+}
+
+.main-page__subline {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
 }
