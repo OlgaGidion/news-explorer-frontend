@@ -1,3 +1,6 @@
+* {
+  outline: 1px solid red;
+}
 .footer {
   background: white;
   height: 80px;
@@ -40,4 +43,8 @@
   text-decoration: none;
   color: #1A1B22;
   font-size: 18px;
+}
+
+.footer__icon {
+  display: block;
 }
