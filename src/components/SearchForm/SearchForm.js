@@ -10,7 +10,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
 
   return (
     <form className="form">
-      <input className="form__input" placeholder={placeholder} name="text" value={text} onChange={handleInputChange} />
+      <input className="form__input" placeholder={placeholder} value={text} onChange={handleInputChange} />
       <button className="button button-rounded button-rounded_type_solid-blue">{buttonText}</button>
     </form>
   );
