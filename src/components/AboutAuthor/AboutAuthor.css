@@ -1,0 +1,34 @@
+.about-author {
+  display: flex;
+  padding: 80px 0 80px 104px;
+}
+
+.about-author__image {
+  width: 464px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-author__text-container {
+  width: 42%;
+  margin-left: 56px;
+  padding-top: 51px;
+}
+
+.about-author__heading {
+  margin: 0 0 24px;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.about-author__text {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.about-author__text:last-child {
+  margin-bottom: 0;
+}
