@@ -1,0 +1,19 @@
+.news-cards {
+  background: #F5F6F7;
+  padding: 62px 104px;
+}
+
+.news-cards__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.news-cards__item {
+  background: white;
+  height: 576px;
+}
