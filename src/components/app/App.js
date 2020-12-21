@@ -1,9 +1,9 @@
-import MainPage from '../MainPage/MainPage';
+import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import './App.css';
 
 const App = () => (
   <div className="app">
-    <MainPage />
+    <SavedNewsPage />
   </div>
 );
 
