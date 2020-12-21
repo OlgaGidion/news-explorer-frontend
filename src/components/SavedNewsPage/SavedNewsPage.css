@@ -14,10 +14,10 @@
 
 .saved-news-page__headline {
   margin: 0 0 30px;
-  width: 35%;
+  width: 38%;
   font-family: 'Roboto Slab';
-  font-size: normal;
-  font-weight: 40px;
+  font-size: 40px;
+  font-weight: normal;
   line-height: 1.15;
   color: #1A1B22;
 }
