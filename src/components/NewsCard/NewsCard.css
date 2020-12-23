@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 .news-card {
   height: 576px;
@@ -24,6 +24,19 @@
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.news-card__category {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 48px;
+  width: fit-content;
+  max-width: calc(100% - 48px);
+  /* padding: 8px 12px; */
+  background-color: white;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
 .news-card__text-container {
