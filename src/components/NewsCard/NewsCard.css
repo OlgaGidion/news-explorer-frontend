@@ -1,7 +1,14 @@
+* {
+  outline: 1px solid red;
+}
+
 .news-card {
+  height: 576px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: white;
   border-radius: 16px;
-  overflow: hidden;
 }
 
 .news-card__image-container {
@@ -20,6 +27,9 @@
 }
 
 .news-card__text-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   padding: 20px 24px 24px;
 }
 .news-card__date {
@@ -38,9 +48,12 @@
 }
 
 .news-card__text {
+  flex-grow: 1;
+  flex-basis: 0;
   margin: 0 0 18px;
   font-size: 16px;
   line-height: 1.4;
+  overflow: hidden;
 }
 
 .news-card__source {
