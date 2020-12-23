@@ -30,13 +30,24 @@
   position: absolute;
   top: 24px;
   left: 24px;
-  right: 48px;
+  min-height: 40px;
   width: fit-content;
-  max-width: calc(100% - 48px);
-  /* padding: 8px 12px; */
+  max-width: calc(100% - 2 * 24px - 40px - 24px);
+  display: flex;
+  align-items: center;
   background-color: white;
   border-radius: 10px;
+}
+
+.news-card__category-text {
+  margin: 8px 12px;
   font-size: 14px;
+}
+
+.news-card__button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
 }
 
 .news-card__text-container {

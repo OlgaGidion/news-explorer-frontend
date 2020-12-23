@@ -1,0 +1,9 @@
+@import url(./__image/button-icon__image.css);
+
+.button-icon {
+  border: none;
+  background: white;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+}
