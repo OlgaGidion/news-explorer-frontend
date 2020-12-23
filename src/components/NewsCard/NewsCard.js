@@ -2,7 +2,9 @@ import './NewsCard.css';
 
 const NewsCard = ({ imageUrl }) => (
   <div className="news-card">
-    <img className="news-card__image" src={imageUrl} alt="Национальное достояние – парки" />
+    <div className="news-card__image-container">
+      <img className="news-card__image" src={imageUrl} alt="Национальное достояние – парки" />
+    </div>
     <div className="news-card__text-container">
       <p className="news-card__date">2 августа, 2019</p>
       <h3 className="news-card__headline">Национальное достояние – парки</h3>
