@@ -1,0 +1,20 @@
+.news-card {
+  background: white;
+  border-radius: 16px;
+}
+
+.news-card__image {
+  display: block;
+  width: 100%;
+}
+
+.news-card__text {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.news-card__source {
+  font-family: 'Roboto Slab';
+  font-size: 16px;
+  color: #B6BCBF;
+}
