@@ -26,7 +26,10 @@
       "react-app",
       "react-app/jest",
       "airbnb-base"
-    ]
+    ],
+    "rules": {
+      "object-curly-newline": [0]
+    }
   },
   "browserslist": {
     "production": [
