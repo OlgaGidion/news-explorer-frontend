@@ -5,7 +5,7 @@
 }
 
 .search-not-found__headline {
-  margin: 24px 0 16px;
+  margin: 0 0 16px;
   width: 25%;
   text-align: center;
   font-family: 'Roboto Slab';
@@ -14,7 +14,7 @@
 }
 
 .search-not-found__subline {
-  margin: 0;
+  margin: 24px 0 0;
   width: 25%;
   text-align: center;
   font-size: 18px;

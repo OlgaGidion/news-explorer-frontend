@@ -1,8 +1,11 @@
 import NewsCardResult from '../NewsCardResult/NewsCardResult';
+import SearchPreloader from '../SearchPreloader/SearchPreloader';
 import './SearchResults.css';
 
 const SearchResults = () => (
   <section className="search-results">
+    <SearchPreloader />
+
     <h2 className="search-results__headline">Результаты поиска</h2>
     <ul className="search-results__list">
       <li className="search-results__item">
