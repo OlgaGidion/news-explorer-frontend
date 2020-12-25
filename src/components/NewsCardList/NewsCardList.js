@@ -42,7 +42,7 @@ const NewsCardList = () => (
           source="МЕДИАЗОНА"
           date="2 августа, 2019"
           imageUrl="https://images.unsplash.com/photo-1605718666790-c4dfe635344e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80"
-          category="Парки"
+          category="Familienzusammenführung"
         />
       </li>
       <li className="news-cards__item">

@@ -26,28 +26,34 @@
   object-fit: cover;
 }
 
-.news-card__category {
+.news-card__overlay {
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   top: 24px;
+  right: 24px;
   left: 24px;
-  min-height: 40px;
-  width: fit-content;
-  max-width: calc(100% - 2 * 24px - 40px - 24px);
+
+}
+
+.news-card__category {
   display: flex;
   align-items: center;
+  overflow: hidden;
   background-color: white;
   border-radius: 10px;
 }
 
 .news-card__category-text {
   margin: 8px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 14px;
 }
 
 .news-card__button {
-  position: absolute;
-  top: 24px;
-  right: 24px;
+  flex-shrink: 0;
+  margin-left: 24px;
 }
 
 .news-card__text-container {
