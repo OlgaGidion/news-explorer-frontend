@@ -1,6 +1,6 @@
 .news-cards {
-  background: #F5F6F7;
   padding: 62px 104px;
+  background: #F5F6F7;
 }
 
 .news-cards__list {
@@ -11,8 +11,4 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
-}
-
-.news-cards__item {
-
 }

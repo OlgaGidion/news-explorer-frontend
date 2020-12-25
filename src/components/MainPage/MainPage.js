@@ -2,6 +2,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
+import SearchResults from '../SearchResults/SearchResults';
 import AboutAuthor from '../AboutAuthor/AboutAuthor';
 import './MainPage.css';
 
@@ -17,6 +18,7 @@ const MainPage = () => (
         <SearchForm placeholder="Введите тему новости" buttonText="Искать" />
       </div>
     </div>
+    <SearchResults />
     <AboutAuthor />
     <Footer />
   </main>

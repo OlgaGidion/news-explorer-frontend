@@ -1,0 +1,31 @@
+/* * {
+  outline: red 1px solid;
+} */
+
+.search-results {
+  padding: 80px 104px;
+  background: #F5F6F7;
+}
+
+.search-results__headline {
+  margin: 0 0 64px;
+  font-family: 'Roboto Slab';
+  font-size: 40px;
+  font-weight: normal;
+  color: #1A1B22;
+}
+
+.search-results__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+  padding: 0;
+  margin: 0 0 64px;
+  list-style-type: none;
+}
+
+.search-results__button-container {
+  display: flex;
+  justify-content: center;
+}
