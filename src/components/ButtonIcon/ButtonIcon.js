@@ -1,10 +1,25 @@
+import React from 'react';
 import './ButtonIcon.css';
 
-const ButtonIcon = ({ image, actionText, hintText }) => (
-  <button className="button-icon news-card__button">
-    <img className="button-icon__image" src={image} alt={actionText} />
-    <div className="button-icon__hint button-icon__hint_visible">{hintText}</div>
-  </button>
-);
+const ButtonIcon = ({ image, actionText, hintText }) => {
+  const [isHover, setIsHover] = React.useState(false);
+
+  const handleMouseOver = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHover(false);
+  };
+
+  const hintMod = isHover ? 'button-icon__hint_visible' : '';
+
+  return (
+    <button className="button-icon news-card__button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <img className="button-icon__image" src={image} alt={actionText} />
+      <div className={`button-icon__hint ${hintMod}`}>{hintText}</div>
+    </button>
+  );
+};
 
 export default ButtonIcon;
