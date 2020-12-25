@@ -11,6 +11,7 @@ const NewsCard = ({ headline, text, source, date, imageUrl, category }) => (
         </div>
         <button className="button button-icon news-card__button">
           <img className="button-icon__image" src={deleteImage} alt="Удалить" />
+          <div className="hint">Убрать из сохранённых</div>
         </button>
       </div>
     </div>
