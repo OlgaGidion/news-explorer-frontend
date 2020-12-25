@@ -36,9 +36,13 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.1) -3px 5px 8px;
   opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .button-icon__hint_visible {
   opacity: 1;
+  transform: translateX(0);
 }
