@@ -11,6 +11,7 @@ const NewsCard = ({ headline, text, source, date, imageUrl, category }) => (
           <p className="news-card__category-text">{category}</p>
         </div>
         <ButtonIcon
+          classMix="news-card__overlay-button"
           image={deleteImage}
           actionText="Удалить"
           hintText="Убрать из сохранённых" />

@@ -48,8 +48,7 @@
   font-weight: 500;
 }
 
-.news-card__button {
-  position: relative;
+.news-card__overlay-button {
   flex-shrink: 0;
   margin-left: 24px;
 }
@@ -60,6 +59,7 @@
   flex-direction: column;
   padding: 20px 24px 24px;
 }
+
 .news-card__date {
   margin: 0 0 12px;
   font-family: 'Source Sans Pro', sans-serif;
