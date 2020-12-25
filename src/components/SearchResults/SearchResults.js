@@ -1,4 +1,4 @@
-import NewsCard from '../NewsCard/NewsCard';
+import NewsCardResult from '../NewsCardResult/NewsCardResult';
 import './SearchResults.css';
 
 const SearchResults = () => (
@@ -6,7 +6,7 @@ const SearchResults = () => (
     <h2 className="search-results__headline">Результаты поиска</h2>
     <ul className="search-results__list">
       <li className="search-results__item">
-        <NewsCard
+        <NewsCardResult
             headline="Национальное достояние – парки"
             text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе."
             source="ДЗЭН"
@@ -16,7 +16,7 @@ const SearchResults = () => (
           />
       </li>
       <li className="search-results__item">
-        <NewsCard
+        <NewsCardResult
             headline="Лесные огоньки: история одной фотографии"
             text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
             из местных чудес природы."
@@ -27,7 +27,7 @@ const SearchResults = () => (
           />
       </li>
       <li className="search-results__item">
-      <NewsCard
+      <NewsCardResult
           headline="«Первозданная тайга»: новый фотопроект Игоря Шпиленка"
           text="Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где..."
           source="МЕДИАЗОНА"

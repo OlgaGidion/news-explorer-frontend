@@ -1,11 +1,11 @@
-import NewsCard from '../NewsCard/NewsCard';
+import NewsCardSaved from '../NewsCardSaved/NewsCardSaved';
 import './NewsCardList.css';
 
 const NewsCardList = () => (
   <section className="news-cards">
     <ul className="news-cards__list">
       <li className="news-cards__item">
-        <NewsCard
+        <NewsCardSaved
           headline="Национальное достояние – парки"
           text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе."
           source="ДЗЭН"
@@ -15,7 +15,7 @@ const NewsCardList = () => (
         />
       </li>
       <li className="news-cards__item">
-        <NewsCard
+        <NewsCardSaved
           headline="Лесные огоньки: история одной фотографии"
           text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
           из местных чудес природы."
@@ -26,7 +26,7 @@ const NewsCardList = () => (
         />
       </li>
       <li className="news-cards__item">
-        <NewsCard
+        <NewsCardSaved
           headline="«Первозданная тайга»: новый фотопроект Игоря Шпиленка"
           text="Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где..."
           source="МЕДИАЗОНА"
@@ -36,7 +36,7 @@ const NewsCardList = () => (
          />
       </li>
       <li className="news-cards__item">
-        <NewsCard
+        <NewsCardSaved
           headline="Национальное достояние – парки"
           text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе."
           source="МЕДИАЗОНА"
@@ -46,7 +46,7 @@ const NewsCardList = () => (
         />
       </li>
       <li className="news-cards__item">
-        <NewsCard
+        <NewsCardSaved
           headline="Лесные огоньки: история одной фотографии"
           text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
           из местных чудес природы."
