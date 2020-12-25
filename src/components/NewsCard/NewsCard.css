@@ -58,23 +58,6 @@
   margin-left: 24px;
 }
 
-.hint {
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: 45px;
-  height: 40px;
-  pointer-events: none;
-  white-space: nowrap;
-  background-color:white;
-  color: black;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
 .news-card__text-container {
   flex-grow: 1;
   display: flex;

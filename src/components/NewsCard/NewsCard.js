@@ -1,5 +1,6 @@
-import './NewsCard.css';
+import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import deleteImage from '../../images/delete.svg';
+import './NewsCard.css';
 
 const NewsCard = ({ headline, text, source, date, imageUrl, category }) => (
   <div className="news-card">
@@ -9,10 +10,10 @@ const NewsCard = ({ headline, text, source, date, imageUrl, category }) => (
         <div className="news-card__category">
           <p className="news-card__category-text">{category}</p>
         </div>
-        <button className="button button-icon news-card__button">
-          <img className="button-icon__image" src={deleteImage} alt="Удалить" />
-          <div className="hint">Убрать из сохранённых</div>
-        </button>
+        <ButtonIcon
+          image={deleteImage}
+          actionText="Удалить"
+          hintText="Убрать из сохранённых" />
       </div>
     </div>
     <div className="news-card__text-container">
