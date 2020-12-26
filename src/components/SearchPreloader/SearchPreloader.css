@@ -5,15 +5,14 @@
 }
 
 .search-preloader__image {
-  background: green;
   width: 74px;
   height: 74px;
-  animation: spin 1.75s infinite linear;
+  animation: spin 1.25s infinite linear;
 }
 
 @keyframes spin {
 	100% {
-		transform: rotate(360deg);
+		transform: rotate(-360deg);
 	}
 }
 
