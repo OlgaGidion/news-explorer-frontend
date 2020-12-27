@@ -47,4 +47,6 @@
 .popup-with-form__footer {
   margin: 16px 0 0;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
 }
