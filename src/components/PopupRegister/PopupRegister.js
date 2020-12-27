@@ -34,6 +34,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
 
       <fieldset className="popup-with-form__fieldset">
 
+        <label for="email" className="popup-with-form__label">Email</label>
         <input
           id="popup-register_input_email"
           className="popup-with-form__input-text"
@@ -49,6 +50,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
           id="popup-register_input_email_error"
           className="popup-with-form__input-error hidden" />
 
+        <label for="password" className="popup-with-form__label">Пароль</label>
         <input
           id="popup-register_input_password"
           className="popup-with-form__input-text"
@@ -64,6 +66,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
           id="popup-register_input_password_error"
           className="popup-with-form__input-error hidden" />
 
+        <label for="name" className="popup-with-form__label">Имя</label>
         <input
           id="popup-register_input_name"
           className="popup-with-form__input-text"

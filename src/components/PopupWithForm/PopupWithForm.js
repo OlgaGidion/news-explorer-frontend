@@ -32,8 +32,7 @@ const PopupWithForm = ({
   };
 
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
-      <h2 className="popup__title">{title}</h2>
+    <Popup title={title} isOpen={isOpen} onClose={onClose}>
       <form className="popup__form" name={name} onSubmit={handleFormSubmit} noValidate>
 
         {children}
