@@ -12,7 +12,7 @@
 .input-text {
   border: 0;
   outline: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
   padding: 13px 0;
   font-family: 'Inter', sans-serif;
@@ -20,12 +20,6 @@
   line-height: 1.2;
 }
 
-.input-text_light {
-  border: 0;
-  outline: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  width: 100%;
-  padding: 13px 0;
-  font-size: 14px;
-  line-height: 1.2;
+.input-text::placeholder {
+  color: rgba(0, 0, 0, 0.2);
 }

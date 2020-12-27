@@ -23,64 +23,62 @@ const RegisterPopup = ({ isOpen, onClose }) => {
   };
 
   return (
-    <>
-      <PopupWithForm
-        name=""
-        title="Регистрация"
-        actionText="Зарегистрироваться"
-        inProgressText="Регистрация..."
-        isOpen={isOpen}
-        onClose={onClose}>
+    <PopupWithForm
+      name="register"
+      title="Регистрация"
+      actionText="Зарегистрироваться"
+      inProgressText="Регистрация..."
+      isOpen={isOpen}
+      onClose={onClose}>
 
-        <fieldset className="register-popup__fieldset">
+      <fieldset className="register-popup__fieldset">
 
-          <input
-            id="register-popup_input_email"
-            className="register-popup__input-text input-text input-text_light"
-            name="email"
-            type="email"
-            value={email}
-            placeholder="Введите email"
-            required
-            minLength="5"
-            maxLength="50"
-            onChange={handleEmailChange} />
-          <span
-            id="register-popup_input_email_error"
-            className="input-error hidden" />
+        <input
+          id="register-popup_input_email"
+          className="register-popup__input-text input-text"
+          name="email"
+          type="email"
+          value={email}
+          placeholder="Введите email"
+          required
+          minLength="5"
+          maxLength="50"
+          onChange={handleEmailChange} />
+        <span
+          id="register-popup_input_email_error"
+          className="input-error hidden" />
 
-          <input
-            id="register-popup_input_password"
-            className="register-popup__input-text input-text input-text_light"
-            name="password"
-            type="password"
-            value={password}
-            placeholder="Введите пароль"
-            minLength="5"
-            maxLength="100"
-            required
-            onChange={handlePasswordChange} />
-          <span
-            id="register-popup_input_password_error"
-            className="input-error hidden" />
+        <input
+          id="register-popup_input_password"
+          className="register-popup__input-text input-text"
+          name="password"
+          type="password"
+          value={password}
+          placeholder="Введите пароль"
+          minLength="5"
+          maxLength="100"
+          required
+          onChange={handlePasswordChange} />
+        <span
+          id="register-popup_input_password_error"
+          className="input-error hidden" />
 
-          <input
-            id="register-popup_input_name"
-            className="register-popup__input-text input-text input-text_light"
-            name="name"
-            value={name}
-            placeholder="Введите свое имя"
-            minLength="2"
-            maxLength="100"
-            required
-            onChange={handleNameChange} />
-          <span
-            id="register-popup_input_password_error"
-            className="input-error hidden" />
+        <input
+          id="register-popup_input_name"
+          className="register-popup__input-text input-text"
+          name="name"
+          value={name}
+          placeholder="Введите свое имя"
+          minLength="2"
+          maxLength="100"
+          required
+          onChange={handleNameChange} />
+        <span
+          id="register-popup_input_name_error"
+          className="input-error hidden" />
 
-        </fieldset>
-      </PopupWithForm>
-    </>
+      </fieldset>
+    </PopupWithForm>
   );
 };
 
