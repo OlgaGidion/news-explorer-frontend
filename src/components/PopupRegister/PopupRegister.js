@@ -46,7 +46,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
           onChange={handleEmailChange} />
         <span
           id="popup-register_input_email_error"
-          className="input-error hidden" />
+          className="popup-with-form__input-error hidden" />
 
         <input
           id="popup-register_input_password"
@@ -61,7 +61,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
           onChange={handlePasswordChange} />
         <span
           id="popup-register_input_password_error"
-          className="input-error hidden" />
+          className="popup-with-form__input-error hidden" />
 
         <input
           id="popup-register_input_name"
@@ -75,7 +75,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
           onChange={handleNameChange} />
         <span
           id="popup-register_input_name_error"
-          className="input-error hidden" />
+          className="popup-with-form__input-error hidden" />
 
       </fieldset>
     </PopupWithForm>
