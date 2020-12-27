@@ -31,11 +31,11 @@ const RegisterPopup = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}>
 
-      <fieldset className="register-popup__fieldset">
+      <fieldset className="popup-with-form__fieldset">
 
         <input
           id="register-popup_input_email"
-          className="register-popup__input-text input-text"
+          className="popup-with-form__input-text"
           name="email"
           type="email"
           value={email}
@@ -50,7 +50,7 @@ const RegisterPopup = ({ isOpen, onClose }) => {
 
         <input
           id="register-popup_input_password"
-          className="register-popup__input-text input-text"
+          className="popup-with-form__input-text"
           name="password"
           type="password"
           value={password}
@@ -65,7 +65,7 @@ const RegisterPopup = ({ isOpen, onClose }) => {
 
         <input
           id="register-popup_input_name"
-          className="register-popup__input-text input-text"
+          className="popup-with-form__input-text"
           name="name"
           value={name}
           placeholder="Введите свое имя"
