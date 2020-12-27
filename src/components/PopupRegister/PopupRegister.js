@@ -1,8 +1,8 @@
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import './RegisterPopup.css';
+import './PopupRegister.css';
 
-const RegisterPopup = ({ isOpen, onClose }) => {
+const PopupRegister = ({ isOpen, onClose }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
@@ -34,7 +34,7 @@ const RegisterPopup = ({ isOpen, onClose }) => {
       <fieldset className="popup-with-form__fieldset">
 
         <input
-          id="register-popup_input_email"
+          id="popup-register_input_email"
           className="popup-with-form__input-text"
           name="email"
           type="email"
@@ -45,11 +45,11 @@ const RegisterPopup = ({ isOpen, onClose }) => {
           maxLength="50"
           onChange={handleEmailChange} />
         <span
-          id="register-popup_input_email_error"
+          id="popup-register_input_email_error"
           className="input-error hidden" />
 
         <input
-          id="register-popup_input_password"
+          id="popup-register_input_password"
           className="popup-with-form__input-text"
           name="password"
           type="password"
@@ -60,11 +60,11 @@ const RegisterPopup = ({ isOpen, onClose }) => {
           required
           onChange={handlePasswordChange} />
         <span
-          id="register-popup_input_password_error"
+          id="popup-register_input_password_error"
           className="input-error hidden" />
 
         <input
-          id="register-popup_input_name"
+          id="popup-register_input_name"
           className="popup-with-form__input-text"
           name="name"
           value={name}
@@ -74,7 +74,7 @@ const RegisterPopup = ({ isOpen, onClose }) => {
           required
           onChange={handleNameChange} />
         <span
-          id="register-popup_input_name_error"
+          id="popup-register_input_name_error"
           className="input-error hidden" />
 
       </fieldset>
@@ -82,4 +82,4 @@ const RegisterPopup = ({ isOpen, onClose }) => {
   );
 };
 
-export default RegisterPopup;
+export default PopupRegister;
