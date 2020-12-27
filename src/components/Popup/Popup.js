@@ -19,6 +19,7 @@ const Popup = ({ isOpen, onClose, children }) => {
       <div className="popup__container">
         <button className="popup__close-button" type="button" onClick={handleClose} />
         {children}
+        <div className="popup__text-button">или <button className="button button-text">Войти</button></div>
       </div>
     </div>
   );

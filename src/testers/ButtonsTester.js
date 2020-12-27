@@ -26,7 +26,6 @@ const ButtonsTester = () => {
 
       <div style={{fontSize: '30px', fontFamily: 'sans-serif'}}>
         This text contains <button className="button button-text">text button</button> inside
-
       </div>
     </>
   );
