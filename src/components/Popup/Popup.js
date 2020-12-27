@@ -15,11 +15,10 @@ const Popup = ({ isOpen, onClose, children }) => {
 
   return (
     <div className={classList}>
-      <div className="popup__overlay popup__overlay_opacity_low" onClick={handleClose} />
+      <div className="popup__overlay" onClick={handleClose} />
       <div className="popup__container">
         <button className="popup__close-button" type="button" onClick={handleClose} />
         {children}
-        <div className="popup__text-button">или <button className="button button-text">Войти</button></div>
       </div>
     </div>
   );

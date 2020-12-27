@@ -27,6 +27,7 @@ const PopupRegister = ({ isOpen, onClose }) => {
       name="register"
       title="Регистрация"
       actionText="Зарегистрироваться"
+      secondaryButtonText="Войти"
       inProgressText="Регистрация..."
       isOpen={isOpen}
       onClose={onClose}>

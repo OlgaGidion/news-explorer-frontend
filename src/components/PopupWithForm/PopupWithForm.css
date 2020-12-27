@@ -25,14 +25,19 @@
   color: rgba(0, 0, 0, 0.2);
 }
 
-.popup-with-form__submit-button {
-  width: 100%;
-  margin-top: 29px;
-}
-
 .popup-with-form__input-error {
   margin-top: 5px;
   color: red;
   font-size: 12px;
   line-height: 1.25;
+}
+
+.popup-with-form__submit-button {
+  width: 100%;
+  margin-top: 29px;
+}
+
+.popup-with-form__footer {
+  margin: 16px 0 0;
+  text-align: center;
 }
