@@ -23,12 +23,6 @@
   box-sizing: border-box;
 }
 
-.popup__fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
 .popup__overlay {
   position: absolute;
   top: 0;
@@ -55,7 +49,7 @@
 }
 
 .popup__title_top {
-  margin: 0 0 24px;
+  margin: 0 0 22px;
 }
 
 .popup__input-text {

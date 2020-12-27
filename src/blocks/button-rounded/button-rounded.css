@@ -3,6 +3,7 @@
 .button-rounded {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 64px;
   border-radius: 32px;
   border: none;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Popup from '../Popup/Popup';
+import './PopupWithForm.css';
 
 const PopupWithForm = ({
   name,
@@ -34,7 +35,7 @@ const PopupWithForm = ({
       <h2 className="popup__title popup__title_top">{title}</h2>
       <form className="popup__form" name={name} onSubmit={handleFormSubmit} noValidate>
         {children}
-        <button className="button button-rounded button-rounded_type_solid-blue" disabled={isInProgress}>{buttonText}</button>
+        <button className="button button-rounded button-rounded_type_solid-blue popup-with-form__button" disabled={isInProgress}>{buttonText}</button>
       </form>
     </Popup>
   );
