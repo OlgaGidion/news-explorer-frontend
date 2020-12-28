@@ -1,21 +1,18 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
 
 const PopupLogin = ({ isOpen, onClose }) => {
-  // const [email, setEmail] = React.useState('');
-  // const [password, setPassword] = React.useState('');
+  const [, setEmail] = React.useState('');
+  const [, setPassword] = React.useState('');
 
-  // const handleEmailChange = (e) => {
-  //   const text = e.target.value;
-  //   setEmail(text);
-  // };
+  const handleEmailChange = (text) => {
+    setEmail(text);
+  };
 
-  // const handlePasswordChange = (e) => {
-  //   const text = e.target.value;
-  //   setPassword(text);
-  // };
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+  };
 
   return (
     <PopupWithForm
@@ -30,22 +27,24 @@ const PopupLogin = ({ isOpen, onClose }) => {
       <fieldset className="popup-with-form__fieldset">
 
         <FormInput
+          required
           label="Email"
           name="email"
           type="email"
           placeholder="Введите почту"
-          required
           minLength="5"
-          maxLength="50" />
+          maxLength="50"
+          onChange={handleEmailChange} />
 
         <FormInput
+          required
           label="Пароль"
           name="password"
           type="password"
           placeholder="Введите пароль"
-          required
           minLength="5"
-          maxLength="100" />
+          maxLength="100"
+          onChange={handlePasswordChange} />
 
       </fieldset>
     </PopupWithForm>

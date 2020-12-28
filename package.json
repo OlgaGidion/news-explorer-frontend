@@ -28,6 +28,7 @@
       "airbnb-base"
     ],
     "rules": {
+      "max-len": [0],
       "object-curly-newline": [0],
       "import/prefer-default-export": [0]
     }
