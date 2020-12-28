@@ -1,23 +1,23 @@
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import FormInput from '../FormInput/FormInput';
 
 const PopupRegister = ({ isOpen, onClose }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
+  const [name, setName] = React.useState(null);
 
-  const handleEmailChange = (e) => {
-    const text = e.target.value;
+  const isButtonDisabled = email === null || password === null || name === null;
+
+  const handleEmailChange = (text) => {
     setEmail(text);
   };
 
-  const handlePasswordChange = (e) => {
-    const text = e.target.value;
+  const handlePasswordChange = (text) => {
     setPassword(text);
   };
 
-  const handleNameChange = (e) => {
-    const text = e.target.value;
+  const handleNameChange = (text) => {
     setName(text);
   };
 
@@ -29,56 +29,40 @@ const PopupRegister = ({ isOpen, onClose }) => {
       secondaryButtonText="Войти"
       inProgressText="Регистрация..."
       isOpen={isOpen}
+      isButtonDisabled={isButtonDisabled}
       onClose={onClose}>
 
       <fieldset className="popup-with-form__fieldset">
 
-        <label for="email" className="popup-with-form__label">Email</label>
-        <input
-          id="popup-register_input_email"
-          className="popup-with-form__input-text"
+        <FormInput
+          required
+          label="Email"
           name="email"
           type="email"
-          value={email}
           placeholder="Введите почту"
-          required
           minLength="5"
           maxLength="50"
           onChange={handleEmailChange} />
-        <span
-          id="popup-register_input_email_error"
-          className="popup-with-form__input-error hidden" />
 
-        <label for="password" className="popup-with-form__label">Пароль</label>
-        <input
-          id="popup-register_input_password"
-          className="popup-with-form__input-text"
+        <FormInput
+          required
+          label="Пароль"
           name="password"
           type="password"
-          value={password}
           placeholder="Введите пароль"
           minLength="5"
           maxLength="100"
-          required
           onChange={handlePasswordChange} />
-        <span
-          id="popup-register_input_password_error"
-          className="popup-with-form__input-error hidden" />
 
-        <label for="name" className="popup-with-form__label">Имя</label>
-        <input
-          id="popup-register_input_name"
-          className="popup-with-form__input-text"
+        <FormInput
+          required
+          label="Имя"
           name="name"
-          value={name}
+          type="text"
           placeholder="Введите свое имя"
           minLength="2"
-          maxLength="100"
-          required
+          maxLength="30"
           onChange={handleNameChange} />
-        <span
-          id="popup-register_input_name_error"
-          className="popup-with-form__input-error hidden" />
 
       </fieldset>
     </PopupWithForm>
