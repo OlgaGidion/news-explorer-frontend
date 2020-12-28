@@ -3,8 +3,10 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
 
 const PopupLogin = ({ isOpen, onClose }) => {
-  const [, setEmail] = React.useState('');
-  const [, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
+
+  const isButtonDisabled = email === null || password === null;
 
   const handleEmailChange = (text) => {
     setEmail(text);
@@ -22,6 +24,7 @@ const PopupLogin = ({ isOpen, onClose }) => {
       secondaryButtonText="Зарегистрироваться"
       inProgressText="Вход..."
       isOpen={isOpen}
+      isButtonDisabled={isButtonDisabled}
       onClose={onClose}>
 
       <fieldset className="popup-with-form__fieldset">

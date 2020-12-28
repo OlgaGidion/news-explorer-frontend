@@ -9,12 +9,13 @@ const FormInput = ({ label, name, type, placeholder, required, minLength, maxLen
   const handleChange = (e) => {
     const text = e.target.value;
     setValue(text);
-    onChange(text);
 
     if (inputRef.current.validity.valid) {
       setError(null);
+      onChange(text);
     } else {
       setError(inputRef.current.validationMessage);
+      onChange(null);
     }
   };
 

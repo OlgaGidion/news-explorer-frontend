@@ -9,6 +9,7 @@ const PopupWithForm = ({
   secondaryButtonText,
   inProgressText,
   isOpen,
+  isButtonDisabled,
   onClose,
   onSubmit,
   children,
@@ -31,6 +32,10 @@ const PopupWithForm = ({
     onSubmit();
   };
 
+  const buttonType = !isButtonDisabled
+    ? 'button-rounded_type_solid-blue'
+    : 'button-rounded_type_disabled';
+
   return (
     <Popup title={title} isOpen={isOpen} onClose={onClose}>
       <form className="popup__form" name={name} onSubmit={handleFormSubmit} noValidate>
@@ -40,7 +45,7 @@ const PopupWithForm = ({
         <p className="popup-with-form__error-text">Такой пользователь уже есть</p>
 
         <button
-          className="button button-rounded button-rounded_type_solid-blue popup-with-form__submit-button"
+          className={`button button-rounded ${buttonType} popup-with-form__submit-button`}
           disabled={isInProgress}>
             {buttonText}
         </button>
