@@ -41,7 +41,10 @@ const PopupLogin = ({ isOpen, onClose }) => {
           onChange={handleEmailChange} />
         <span
           id="popup-login_input_email_error"
-          className="popup-with-form__input-error hidden" />
+          className="popup-with-form__input-error hidden"
+          style={{ display: 'none' }}>
+            Неправильный формат email
+          </span>
 
         <label for="password" className="popup-with-form__label">Пароль</label>
         <input
@@ -57,7 +60,10 @@ const PopupLogin = ({ isOpen, onClose }) => {
           onChange={handlePasswordChange} />
         <span
           id="popup-login_input_password_error"
-          className="popup-with-form__input-error hidden" />
+          className="popup-with-form__input-error hidden"
+          style={{ display: 'none' }}>
+            Неправильный формат email
+          </span>
 
       </fieldset>
     </PopupWithForm>
