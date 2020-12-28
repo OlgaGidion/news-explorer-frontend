@@ -19,9 +19,13 @@ const FormInput = ({ label, name, type, placeholder, required, minLength, maxLen
     }
   };
 
+  const handleLabelClick = () => {
+    inputRef.current.focus();
+  };
+
   return (
     <>
-      <label className="form-input__label" htmlFor={name}>
+      <label className="form-input__label" htmlFor={name} onClick={handleLabelClick}>
         {label}
       </label>
 
