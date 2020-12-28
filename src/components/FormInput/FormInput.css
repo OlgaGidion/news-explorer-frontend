@@ -1,0 +1,39 @@
+.form-input__label {
+  display: block;
+  margin-top: 15px;
+  color: #2F71E5;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.form-input__input-text {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 13px 0;
+  margin-bottom: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.form-input__input-text:focus {
+  border-bottom-color: black;
+}
+
+.form-input__input-text::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.form-input__input-error {
+  display: block;
+  margin-bottom: 20px;
+  color: red;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.form-input__input-error_hidden {
+  display: none;
+}

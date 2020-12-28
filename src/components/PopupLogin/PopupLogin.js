@@ -1,19 +1,21 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import FormInput from '../FormInput/FormInput';
 
 const PopupLogin = ({ isOpen, onClose }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  // const [email, setEmail] = React.useState('');
+  // const [password, setPassword] = React.useState('');
 
-  const handleEmailChange = (e) => {
-    const text = e.target.value;
-    setEmail(text);
-  };
+  // const handleEmailChange = (e) => {
+  //   const text = e.target.value;
+  //   setEmail(text);
+  // };
 
-  const handlePasswordChange = (e) => {
-    const text = e.target.value;
-    setPassword(text);
-  };
+  // const handlePasswordChange = (e) => {
+  //   const text = e.target.value;
+  //   setPassword(text);
+  // };
 
   return (
     <PopupWithForm
@@ -27,43 +29,23 @@ const PopupLogin = ({ isOpen, onClose }) => {
 
       <fieldset className="popup-with-form__fieldset">
 
-        <label for="email" className="popup-with-form__label">Email</label>
-        <input
-          id="popup-login_input_email"
-          className="popup-with-form__input-text"
+        <FormInput
+          label="Email"
           name="email"
           type="email"
-          value={email}
           placeholder="Введите почту"
           required
           minLength="5"
-          maxLength="50"
-          onChange={handleEmailChange} />
-        <span
-          id="popup-login_input_email_error"
-          className="popup-with-form__input-error hidden"
-          style={{ display: 'none' }}>
-            Неправильный формат email
-          </span>
+          maxLength="50" />
 
-        <label for="password" className="popup-with-form__label">Пароль</label>
-        <input
-          id="popup-login_input_password"
-          className="popup-with-form__input-text"
+        <FormInput
+          label="Пароль"
           name="password"
           type="password"
-          value={password}
           placeholder="Введите пароль"
-          minLength="5"
-          maxLength="100"
           required
-          onChange={handlePasswordChange} />
-        <span
-          id="popup-login_input_password_error"
-          className="popup-with-form__input-error hidden"
-          style={{ display: 'none' }}>
-            Неправильный формат email
-          </span>
+          minLength="5"
+          maxLength="100" />
 
       </fieldset>
     </PopupWithForm>
