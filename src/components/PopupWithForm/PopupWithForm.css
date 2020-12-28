@@ -45,6 +45,14 @@
   margin-top: 36px;
 }
 
+.popup-with-form__error-text {
+  color: red;
+  margin: 25px 0 -25px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
 .popup-with-form__footer {
   margin: 16px 0 0;
   text-align: center;
