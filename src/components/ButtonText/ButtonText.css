@@ -1,4 +1,8 @@
 .button-text {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding: 0;
   color: #2F71E5;
   border: none;
 }

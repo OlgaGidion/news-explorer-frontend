@@ -1,5 +1,6 @@
 import React from 'react';
 import Popup from '../Popup/Popup';
+import ButtonText from '../ButtonText/ButtonText';
 import './PopupWithForm.css';
 
 const PopupWithForm = ({
@@ -51,7 +52,7 @@ const PopupWithForm = ({
         </button>
 
         <p className="popup-with-form__footer">
-          или <button className="button button-text">{secondaryButtonText}</button>
+          или <ButtonText text={secondaryButtonText} />
         </p>
       </form>
     </Popup>
