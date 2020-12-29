@@ -6,6 +6,10 @@
 
 .navigation-button {
   border: none;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding: 0;
   height: 100%;
   margin-right: 32px;
   font-family: 'Roboto', sans-serif;
