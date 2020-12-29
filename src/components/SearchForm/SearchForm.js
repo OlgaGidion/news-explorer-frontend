@@ -1,4 +1,5 @@
 import React from 'react';
+import ButtonSolid from '../ButtonSolid/ButtonSolid';
 import './SearchForm.css';
 
 const SearchForm = ({ placeholder, buttonText }) => {
@@ -11,7 +12,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
   return (
     <form className="form">
       <input className="form__input" placeholder={placeholder} value={text} onChange={handleInputChange} />
-      <button className="button-rounded button-rounded_type_solid-blue">{buttonText}</button>
+      <ButtonSolid text={buttonText} type="blue" />
     </form>
   );
 };

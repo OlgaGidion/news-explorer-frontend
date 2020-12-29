@@ -1,4 +1,5 @@
 import NewsCardResult from '../NewsCardResult/NewsCardResult';
+import ButtonSolid from '../ButtonSolid/ButtonSolid';
 import './SearchResults.css';
 
 const SearchResults = () => (
@@ -38,7 +39,7 @@ const SearchResults = () => (
       </li>
     </ul>
     <div className="search-results__button-container">
-      <button className="button-rounded button-rounded_type_solid-white">Показать еще</button>
+      <ButtonSolid text="Показать еще" type="white" />
     </div>
   </section>
 );
