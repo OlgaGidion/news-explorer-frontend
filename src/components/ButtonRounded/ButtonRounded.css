@@ -1,0 +1,12 @@
+.button-rounded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  border-radius: 32px;
+  border: none;
+  padding: 0 54px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}

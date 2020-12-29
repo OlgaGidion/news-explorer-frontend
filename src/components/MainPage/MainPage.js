@@ -5,7 +5,7 @@ import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
 import SearchResults from '../SearchResults/SearchResults';
 import AboutAuthor from '../AboutAuthor/AboutAuthor';
-import PopupRegister from '../PopupRegister/PopupRegister';
+import PopupLogin from '../PopupLogin/PopupLogin';
 import './MainPage.css';
 
 const MainPage = () => {
@@ -31,7 +31,7 @@ const MainPage = () => {
       <AboutAuthor />
       <Footer />
 
-      <PopupRegister isOpen={isPopupOpened} onClose={handlePopupClose} />
+      <PopupLogin isOpen={isPopupOpened} onClose={handlePopupClose} />
 
     </main>
   );
