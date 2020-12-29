@@ -5,6 +5,9 @@
   height: 64px;
   border-radius: 32px;
   border: none;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
   padding: 0 54px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;

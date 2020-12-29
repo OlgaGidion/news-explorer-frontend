@@ -46,7 +46,7 @@ const PopupWithForm = ({
         <p className="popup-with-form__error-text">Такой пользователь уже есть</p>
 
         <button
-          className={`button button-rounded ${buttonType} popup-with-form__submit-button`}
+          className={`button-rounded ${buttonType} popup-with-form__submit-button`}
           disabled={isInProgress}>
             {buttonText}
         </button>
