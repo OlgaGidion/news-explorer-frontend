@@ -1,6 +1,2 @@
 @import url(./vendor/normalize.css);
 @import url(./fonts/fonts.css);
-@import url(./blocks/button-rounded/button-rounded.css);
-@import url(./blocks/button-rounded/_type/button-rounded_type_wired-light.css);
-@import url(./blocks/button-rounded/_type/button-rounded_type_wired-dark.css);
-@import url(./blocks/button-rounded/_small/button-rounded_small.css);
