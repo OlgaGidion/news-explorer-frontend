@@ -5,7 +5,7 @@
 
 .news-cards__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: auto;
   gap: 16px;
   padding: 0;
