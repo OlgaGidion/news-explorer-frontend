@@ -39,7 +39,7 @@ const SearchResults = () => (
       </li>
     </ul>
     <div className="search-results__button-container">
-      <ButtonSolid text="Показать еще" type="white" />
+      <ButtonSolid type="white" text="Показать еще" />
     </div>
   </section>
 );

@@ -9,7 +9,7 @@ import PopupRegister from '../PopupRegister/PopupRegister';
 import './MainPage.css';
 
 const MainPage = () => {
-  const [isPopupOpened, setIsPopupOpened] = React.useState(true);
+  const [isPopupOpened, setIsPopupOpened] = React.useState(false);
 
   const handlePopupClose = () => {
     setIsPopupOpened(false);

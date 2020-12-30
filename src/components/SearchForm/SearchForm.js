@@ -12,7 +12,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
   return (
     <form className="form">
       <input className="form__input" placeholder={placeholder} value={text} onChange={handleInputChange} />
-      <ButtonSolid text={buttonText} type="blue" />
+      <ButtonSolid type="blue" text={buttonText} />
     </form>
   );
 };

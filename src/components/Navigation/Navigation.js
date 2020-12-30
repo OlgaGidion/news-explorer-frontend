@@ -8,9 +8,12 @@ const Navigation = ({ isDark }) => {
 
   return (
     <nav className="navigation">
+
       <button className={`navigation-button ${navButtonMod} navigation-button_selected`}>Главная</button>
-      <ButtonWired text="Авторизоваться" type={wiredButtonType} />
-      <ButtonWired text="Olga" type={wiredButtonType} image={logoutLightImage} imageAlt="Выйти" />
+      <button className={`navigation-button ${navButtonMod}`}>Сохранённые статьи</button>
+
+      <ButtonWired type={wiredButtonType} text="Грета" image={logoutLightImage} imageAlt="Выйти" />
+
     </nav>
   );
 };

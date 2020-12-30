@@ -42,7 +42,7 @@ const PopupWithForm = ({
 
         <p className="popup-with-form__error-text">Такой пользователь уже есть</p>
 
-        <ButtonSolid text={buttonText} type="blue" classMix="popup-with-form__submit-button" disabled={isButtonDisabled || isInProgress} />
+        <ButtonSolid type="blue" classMix="popup-with-form__submit-button" text={buttonText} disabled={isButtonDisabled || isInProgress} />
 
         <p className="popup-with-form__footer">
           или <ButtonText text={secondaryButtonText} />
