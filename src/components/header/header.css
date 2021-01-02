@@ -23,3 +23,10 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+@media (max-width: 1439px) {
+  .header {
+    height: 66px;
+    padding: 0 40px;
+  }
+}

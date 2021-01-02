@@ -28,3 +28,10 @@
 .navigation-link_selected {
   border-bottom-width: 3px;
 }
+
+@media (max-width: 1439px) {
+  .navigation-link {
+    margin-right: 16px;
+    font-size: 16px;
+  }
+}

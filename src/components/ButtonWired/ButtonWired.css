@@ -45,3 +45,12 @@
 .button-wired__icon-right {
   margin-left: 5px;
 }
+
+@media (max-width: 1439px) {
+  .button-wired {
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 12px;
+    font-size: 16px;
+  }
+}
