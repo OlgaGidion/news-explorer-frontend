@@ -4,29 +4,27 @@
   height: 100%;
 }
 
-.navigation-button {
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  padding: 0;
+.navigation-link {
+  display: flex;
+  align-items: center;
   height: 100%;
+  padding: 0;
   margin-right: 32px;
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
+  text-decoration: none;
 }
 
-.navigation-button_color_dark {
+.navigation-link_color_dark {
   color: #1A1B22;
   border-bottom: 0 solid #1A1B22;
 }
 
-.navigation-button_color_light {
+.navigation-link_color_light {
   color: white;
   border-bottom: 0 solid white;
 }
 
-.navigation-button_selected {
+.navigation-link_selected {
   border-bottom-width: 3px;
 }
