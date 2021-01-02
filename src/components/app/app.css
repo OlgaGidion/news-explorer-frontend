@@ -1,3 +1,7 @@
+* {
+  outline: 1px solid red;
+}
+
 .app {
   font-family: 'Roboto';
   font-weight: normal;

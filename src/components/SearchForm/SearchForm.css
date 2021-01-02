@@ -18,3 +18,10 @@
 .form__input::placeholder {
   color: #B6BCBF;
 }
+
+@media (max-width: 1439px) {
+  .form {
+    height: 56px;
+    border-radius: 28px;
+  }
+}

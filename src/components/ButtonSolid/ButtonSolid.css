@@ -49,3 +49,10 @@
 .button-solid_type_white:active {
   background: rgba(255, 255, 255, 0.7);
 }
+
+@media (max-width: 1439px) {
+  .button-solid {
+    height: 56px;
+    padding: 0 50px;
+  }
+}
