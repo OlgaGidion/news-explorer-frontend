@@ -1,7 +1,6 @@
 import NewsCard from '../NewsCard/NewsCard';
 import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import bookmarkImage from '../../images/bookmark.svg';
-import './NewsCardResult.css';
 
 const NewsCardResult = ({ headline, text, source, date, category, imageUrl }) => (
   <NewsCard

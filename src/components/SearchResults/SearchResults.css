@@ -25,3 +25,19 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 1439px) {
+  .search-results {
+    padding: 40px;
+  }
+
+  .search-results__headline {
+    margin-bottom: 32px;
+    font-size: 30px;
+  }
+
+  .search-results__list {
+    margin-bottom: 32px;
+    gap: 8px;
+  }
+}
