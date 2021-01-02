@@ -19,7 +19,10 @@ const MainPage = () => {
     <main className="main-page">
       <div className="main-page__image-container">
         <Header isDark={false}>
-          <Navigation isDark={false} />
+          <Navigation isDark={false}>
+            <a className="navigation-link navigation-link_color_light navigation-link_selected" href="/">Главная</a>
+            <a className="navigation-link navigation-link_color_light" href="/saved-news">Сохранённые статьи</a>
+          </Navigation>
         </Header>
         <div className="main-page__content">
           <h1 className="main-page__headline">Что творится в мире?</h1>

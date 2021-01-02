@@ -1,19 +1,16 @@
 import ButtonWired from '../ButtonWired/ButtonWired';
 import logoutLightImage from '../../images/logout-light.svg';
+import logoutDarkImage from '../../images/logout-dark.svg';
 import './Navigation.css';
 
-const Navigation = ({ isDark }) => {
-  const navLinkMod = isDark ? 'navigation-link_color_dark' : 'navigation-link_color_light';
-  const wiredButtonType = isDark ? 'dark' : 'light';
+const Navigation = ({ isDark, children }) => {
+  const logoutButtonType = isDark ? 'dark' : 'light';
+  const logoutButtonImage = isDark ? logoutDarkImage : logoutLightImage;
 
   return (
     <nav className="navigation">
-
-      <a className={`navigation-link ${navLinkMod} navigation-link_selected`} href="/">Главная</a>
-      <a className={`navigation-link ${navLinkMod}`} href="/saved-news">Сохранённые статьи</a>
-
-      <ButtonWired type={wiredButtonType} text="Грета" image={logoutLightImage} imageAlt="Выйти" />
-
+      {children}
+      <ButtonWired type={logoutButtonType} text="Грета" image={logoutButtonImage} imageAlt="Выйти" />
     </nav>
   );
 };
