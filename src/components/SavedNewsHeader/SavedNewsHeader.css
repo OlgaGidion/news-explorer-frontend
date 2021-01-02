@@ -1,0 +1,30 @@
+.saved-news-header {
+  padding: 40px 104px 56px;
+}
+
+.saved-news-header__text {
+  margin: 0 0 28px;
+  font-size: 18px;
+  font-weight: normal;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved-news-header__headline {
+  margin: 0 0 30px;
+  width: 38%;
+  font-family: 'Roboto Slab';
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.15;
+  color: #1A1B22;
+}
+
+.saved-news-header__subline {
+  margin: 0;
+  font-size: 18px;
+  color: #1A1B22;
+}
+
+.saved-news-header__highlight {
+  font-weight: bold;
+}
