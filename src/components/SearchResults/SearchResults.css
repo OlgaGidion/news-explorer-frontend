@@ -41,3 +41,19 @@
     gap: 8px;
   }
 }
+
+@media (max-width: 767px) {
+  .search-results {
+    padding: 32px 16px;
+  }
+
+  .search-results__headline {
+    margin-bottom: 24px;
+  }
+
+  .search-results__list {
+    margin-bottom: 15px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 10px;
+  }
+}

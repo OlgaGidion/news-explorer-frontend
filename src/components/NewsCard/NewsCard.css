@@ -121,3 +121,23 @@
     line-height: 1.35;
   }
 }
+
+@media (max-width: 767px) {
+  .news-card {
+    height: 440px;
+  }
+
+  .news-card__image-container {
+    padding-bottom: 68%;
+  }
+
+  .news-card__overlay {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+  }
+
+  .news-card__text {
+    margin-bottom: 8px;
+  }
+}
