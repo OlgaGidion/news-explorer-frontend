@@ -4,6 +4,7 @@
 }
 
 .about-author__image {
+  display: block;
   width: 464px;
   height: 464px;
   object-fit: cover;
@@ -31,4 +32,48 @@
 
 .about-author__text:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 1439px) {
+  .about-author {
+    padding: 40px;
+  }
+
+  .about-author__image {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about-author__text-container {
+    width: 100%;
+    margin-left: 32px;
+    padding-top: 0;
+  }
+
+  .about-author__heading {
+    margin-bottom: 16px;
+    font-size: 30px;
+  }
+
+  .about-author__text {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-author {
+    flex-direction: column;
+    padding: 32px 24px 80px;
+  }
+
+  .about-author__image {
+    width: 272px;
+    height: 272px;
+    margin: 0 auto 25px;
+  }
+
+  .about-author__text-container {
+    width: 100%;
+    margin: 0;
+  }
 }
