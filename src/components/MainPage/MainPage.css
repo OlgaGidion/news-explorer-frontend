@@ -40,3 +40,18 @@
     margin-bottom: 48px;
   }
 }
+
+@media (max-width: 767px) {
+  .main-page__content {
+    padding: 30px 16px 32px;
+  }
+
+  .main-page__headline {
+    margin-bottom: 16px;
+    font-size: 36px;
+  }
+
+  .main-page__subline {
+    margin-bottom: 122px;
+  }
+}
