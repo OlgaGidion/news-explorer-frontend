@@ -7,8 +7,10 @@
 }
 
 .main-page__content {
+  width: 608px;
+  padding: 80px 0;
+  margin: 0 auto;
   color: white;
-  padding: 80px 29%;
 }
 
 .main-page__headline {
@@ -27,7 +29,8 @@
 
 @media (max-width: 1439px) {
   .main-page__content {
-    padding: 38px 21% 48px;
+    width: 448px;
+    padding: 38px 0 48px;
   }
 
   .main-page__headline {
@@ -43,12 +46,8 @@
 
 @media (max-width: 767px) {
   .main-page__content {
+    width: 100%;
     padding: 30px 16px 32px;
-  }
-
-  .main-page__headline {
-    margin-bottom: 16px;
-    font-size: 36px;
   }
 
   .main-page__subline {
