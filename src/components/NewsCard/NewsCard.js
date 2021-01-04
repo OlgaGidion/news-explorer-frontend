@@ -14,7 +14,9 @@ const NewsCard = ({ headline, text, source, date, category, imageUrl, children }
     <div className="news-card__text-container">
       <p className="news-card__date">{date}</p>
       <h3 className="news-card__headline">{headline}</h3>
-      <p className="news-card__text">{text}</p>
+      <div className="news-card__description-container">
+        <p className="news-card__description">{text}</p>
+      </div>
       <p className="news-card__source">{source}</p>
     </div>
   </div>
