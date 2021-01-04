@@ -26,7 +26,6 @@
   background-color: white;
   color: black;
   border-radius: 10px;
-  box-sizing: border-box;
 }
 
 .popup__overlay {
@@ -57,7 +56,6 @@
   background-size: cover;
   border: none;
   outline: none;
-  box-sizing: border-box;
   transition: opacity 0.2s;
 }
 
