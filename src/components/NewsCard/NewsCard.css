@@ -130,4 +130,8 @@
     right: 16px;
     left: 16px;
   }
+
+  .news-card__headline {
+    -webkit-line-clamp: 3;
+  }
 }
