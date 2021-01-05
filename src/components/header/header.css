@@ -1,7 +1,6 @@
 .header {
   height: 80px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 0 104px;
 }
@@ -24,9 +23,23 @@
   font-size: 20px;
 }
 
+.header__menu-button {
+  display: none;
+}
+
 @media (max-width: 1439px) {
   .header {
     height: 66px;
     padding: 0 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 16px;
+  }
+
+  .header__name {
+    font-size: 16px;
   }
 }

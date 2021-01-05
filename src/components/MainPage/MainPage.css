@@ -4,6 +4,7 @@
 .main-page__image-container {
   background: url(../../images/main-page-image.png);
   background-size: cover;
+  background-position: center;
 }
 
 .main-page__content {

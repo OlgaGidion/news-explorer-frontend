@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
+import ButtonWired from '../ButtonWired/ButtonWired';
 import SearchForm from '../SearchForm/SearchForm';
 import SearchResults from '../SearchResults/SearchResults';
 import AboutAuthor from '../AboutAuthor/AboutAuthor';
+import Footer from '../Footer/Footer';
 import PopupRegister from '../PopupRegister/PopupRegister';
+import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
 const MainPage = () => {
@@ -22,6 +24,7 @@ const MainPage = () => {
           <Navigation isDark={false}>
             <a className="navigation-link navigation-link_color_light navigation-link_selected" href="/">Главная</a>
             <a className="navigation-link navigation-link_color_light" href="/saved-news">Сохранённые статьи</a>
+            <ButtonWired type="light" text="Грета" image={logoutImageLight} imageAlt="Выйти" />
           </Navigation>
         </Header>
         <div className="main-page__content">
