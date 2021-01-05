@@ -1,3 +1,4 @@
+import MobileMenu from '../MobileMenu/MobileMenu';
 import './Navigation.css';
 
 const Navigation = ({ isDark, children }) => {
@@ -11,6 +12,9 @@ const Navigation = ({ isDark, children }) => {
         {children}
       </div>
       <button className={`navigation__menu-button ${menuButtonMod}`} />
+
+      <MobileMenu isOpen={true} />
+
     </nav>
   );
 };
