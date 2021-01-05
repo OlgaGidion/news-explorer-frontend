@@ -56,9 +56,3 @@
     padding: 0 50px;
   }
 }
-
-@media (max-width: 767px) {
-  .button-solid {
-    width: 100%;
-  }
-}
