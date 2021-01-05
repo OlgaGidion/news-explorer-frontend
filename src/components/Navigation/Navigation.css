@@ -65,4 +65,18 @@
     outline: none;
     border: none;
   }
+
+  .navigation-link {
+    margin: 0;
+    font-size: 18px;
+    line-height: 3.1;
+  }
+
+  .navigation-link_color_dark {
+    border-bottom: none;
+  }
+
+  .navigation-link_color_light {
+    border-bottom: none;
+  }
 }

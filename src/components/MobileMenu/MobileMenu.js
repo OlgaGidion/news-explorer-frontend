@@ -1,6 +1,6 @@
 import './MobileMenu.css';
 
-const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen, children }) => {
   const classList = isOpen
     ? 'mobile-menu mobile-menu_opened'
     : 'mobile-menu';
@@ -13,6 +13,9 @@ const MobileMenu = ({ isOpen }) => {
           <h1 className="mobile-menu__header-name">NewsExplorer</h1>
           <button className="mobile-menu__close-button" type="button" />
         </header>
+        <div className="mobile-menu__items">
+          {children}
+        </div>
       </div>
     </div>
   );

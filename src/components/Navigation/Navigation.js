@@ -13,7 +13,9 @@ const Navigation = ({ isDark, children }) => {
       </div>
       <button className={`navigation__menu-button ${menuButtonMod}`} />
 
-      <MobileMenu isOpen={true} />
+      <MobileMenu isOpen={true}>
+        {children}
+      </MobileMenu>
 
     </nav>
   );
