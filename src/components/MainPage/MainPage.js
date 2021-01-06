@@ -22,9 +22,9 @@ const MainPage = () => {
       <div className="main-page__image-container">
         <Header isDark={false}>
           <Navigation isDark={false}>
-            <a className="navigation-link navigation-link_color_light navigation-link_selected" href="/">Главная</a>
-            <a className="navigation-link navigation-link_color_light" href="/saved-news">Сохранённые статьи</a>
-            <ButtonWired type="light" text="Грета" image={logoutImageLight} imageAlt="Выйти" />
+            <a className="navigation__link navigation__link_color_light navigation__link_selected" href="/">Главная</a>
+            <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
+            <ButtonWired type="light" text="Грета" image={logoutImageLight} imageAlt="Выйти" classMix="navigation__wired-button" />
           </Navigation>
         </Header>
         <div className="main-page__content">

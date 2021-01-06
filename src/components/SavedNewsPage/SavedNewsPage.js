@@ -11,9 +11,9 @@ const SavedNewsPage = () => (
   <main>
     <Header isDark={true}>
       <Navigation isDark={true}>
-        <a className="navigation-link navigation-link_color_dark" href="/">Главная</a>
-        <a className="navigation-link navigation-link_color_dark navigation-link_selected" href="/saved-news">Сохранённые статьи</a>
-        <ButtonWired type="dark" text="Грета" image={logoutImageDark} imageAlt="Выйти" />
+        <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
+        <a className="navigation__link navigation__link_color_dark navigation__link_selected" href="/saved-news">Сохранённые статьи</a>
+        <ButtonWired type="dark" text="Грета" image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" />
       </Navigation>
     </Header>
 

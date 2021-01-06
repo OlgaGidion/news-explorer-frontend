@@ -8,7 +8,7 @@
   height: 100%;
 }
 
-.navigation-link {
+.navigation__link {
   display: flex;
   align-items: center;
   height: 100%;
@@ -19,17 +19,17 @@
   text-decoration: none;
 }
 
-.navigation-link_color_dark {
+.navigation__link_color_dark {
   color: #1A1B22;
   border-bottom: 0 solid #1A1B22;
 }
 
-.navigation-link_color_light {
+.navigation__link_color_light {
   color: white;
   border-bottom: 0 solid white;
 }
 
-.navigation-link_selected {
+.navigation__link_selected {
   border-bottom-width: 3px;
 }
 
@@ -45,8 +45,11 @@
   background-image: url(../../images/hamburger-menu-light.svg);
 }
 
+.navigation__wired-button {
+}
+
 @media (max-width: 1439px) {
-  .navigation-link {
+  .navigation__link {
     margin-right: 16px;
     font-size: 16px;
   }
@@ -66,17 +69,24 @@
     border: none;
   }
 
-  .navigation-link {
+  .navigation__link {
     margin: 0;
     font-size: 18px;
     line-height: 3.1;
+    color: white;
   }
 
-  .navigation-link_color_dark {
+  .navigation__link_color_dark {
     border-bottom: none;
   }
 
-  .navigation-link_color_light {
+  .navigation__link_color_light {
     border-bottom: none;
+  }
+
+  .navigation__wired-button {
+    margin-top: 22px;
+    color: white !important;
+    border-color: white !important;
   }
 }
