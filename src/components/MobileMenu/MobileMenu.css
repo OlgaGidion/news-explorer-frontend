@@ -20,8 +20,16 @@
 .mobile-menu__container {
   position: absolute;
   width: 100%;
+}
+
+.mobile-menu__container_color_dark {
   background-color: black;
   color: white;
+}
+
+.mobile-menu__container_color_light {
+  background-color: white;
+  color: black;
 }
 
 .mobile-menu__overlay {
@@ -42,6 +50,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.mobile-menu__header_color_dark {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu__header_color_light {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .mobile-menu__header-name {
   margin: 0;
   font-family: 'Roboto Slab', serif;
@@ -50,14 +66,23 @@
 }
 
 .mobile-menu__close-button {
+  background-color: springgreen;
+
   height: 24px;
   width: 24px;
   padding: 0;
   border: none;
   cursor: pointer;
   outline: none;
-  background: transparent;
+  /* background: transparent; */
   background-position: center;
+}
+
+.mobile-menu__close-button_color_dark {
+  background-image: url(../../images/close-button-small.svg);
+}
+
+.mobile-menu__close-button_color_light {
   background-image: url(../../images/close-button-small.svg);
 }
 

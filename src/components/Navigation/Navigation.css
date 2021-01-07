@@ -73,7 +73,6 @@
     margin: 0;
     font-size: 18px;
     line-height: 3.1;
-    color: white;
   }
 
   .navigation__link_color_dark {
@@ -86,7 +85,5 @@
 
   .navigation__wired-button {
     margin-top: 22px;
-    color: white !important;
-    border-color: white !important;
   }
 }

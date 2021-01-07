@@ -24,7 +24,7 @@ const Navigation = ({ isDark, children }) => {
       </div>
       <button className={`navigation__menu-button ${menuButtonMod}`} onClick={handleMobileMenuButtonClick} />
 
-      <MobileMenu isOpen={isMobileMenuOpened} onClose={handleMobileMenuClose}>
+      <MobileMenu isDark={!isDark} isOpen={isMobileMenuOpened} onClose={handleMobileMenuClose}>
         {children}
       </MobileMenu>
 
