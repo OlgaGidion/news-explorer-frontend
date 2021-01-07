@@ -20,7 +20,7 @@ const MainPage = () => {
   return (
     <main className="main-page">
       <div className="main-page__image-container">
-        <Header isDark={false}>
+        <Header isDark={false} isVisibleOnMobile={!isPopupOpened}>
           <Navigation isDark={false}>
             <a className="navigation__link navigation__link_color_light navigation__link_selected" href="/">Главная</a>
             <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>

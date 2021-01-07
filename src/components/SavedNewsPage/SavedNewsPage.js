@@ -9,7 +9,7 @@ import './SavedNewsPage.css';
 
 const SavedNewsPage = () => (
   <main>
-    <Header isDark={true}>
+    <Header isDark={true} isVisibleOnMobile={true}>
       <Navigation isDark={true}>
         <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
         <a className="navigation__link navigation__link_color_dark navigation__link_selected" href="/saved-news">Сохранённые статьи</a>

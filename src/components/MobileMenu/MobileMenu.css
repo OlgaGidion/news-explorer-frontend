@@ -79,11 +79,11 @@
 }
 
 .mobile-menu__close-button_color_dark {
-  background-image: url(../../images/close-button-small.svg);
+  background-image: url(../../images/close-button-small-dark.svg);
 }
 
 .mobile-menu__close-button_color_light {
-  background-image: url(../../images/close-button-small.svg);
+  background-image: url(../../images/close-button-small-light.svg);
 }
 
 .mobile-menu__items {
