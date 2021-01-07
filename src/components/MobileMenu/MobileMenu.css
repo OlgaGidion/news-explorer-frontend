@@ -66,15 +66,13 @@
 }
 
 .mobile-menu__close-button {
-  background-color: springgreen;
-
   height: 24px;
   width: 24px;
   padding: 0;
   border: none;
   cursor: pointer;
   outline: none;
-  /* background: transparent; */
+  background: transparent;
   background-position: center;
 }
 

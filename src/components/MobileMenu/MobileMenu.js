@@ -6,8 +6,8 @@ const MobileMenu = ({ isDark, isOpen, onClose, children }) => {
     : 'mobile-menu__container_color_light';
 
   const closeButtonMod = isDark
-    ? 'mobile-menu__close-button_color_dark'
-    : 'mobile-menu__close-button_color_light';
+    ? 'mobile-menu__close-button_color_light'
+    : 'mobile-menu__close-button_color_dark';
 
   const classList = isOpen
     ? 'mobile-menu mobile-menu_opened'
