@@ -3,21 +3,29 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
 
 const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
-  const [email, setEmail] = React.useState(null);
-  const [password, setPassword] = React.useState(null);
-  const [name, setName] = React.useState(null);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [name, setName] = React.useState('');
 
-  const isButtonDisabled = email === null || password === null || name === null;
+  React.useEffect(() => {
+    if (isOpen) {
+      setEmail('');
+      setPassword('');
+      setName('');
+    }
+  }, [isOpen]);
 
-  const handleEmailChange = (text) => {
+  const isButtonDisabled = email === '' || password === '' || name === '';
+
+  const handleEmailTextChange = (text) => {
     setEmail(text);
   };
 
-  const handlePasswordChange = (text) => {
+  const handlePasswordTextChange = (text) => {
     setPassword(text);
   };
 
-  const handleNameChange = (text) => {
+  const handleNameTextChange = (text) => {
     setName(text);
   };
 
@@ -38,33 +46,36 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
 
         <FormInput
           required
+          text={email}
           label="Email"
           name="email"
           type="email"
           placeholder="Введите почту"
           minLength="5"
           maxLength="50"
-          onChange={handleEmailChange} />
+          onTextChange={handleEmailTextChange} />
 
         <FormInput
           required
+          text={password}
           label="Пароль"
           name="password"
           type="password"
           placeholder="Введите пароль"
           minLength="5"
           maxLength="100"
-          onChange={handlePasswordChange} />
+          onTextChange={handlePasswordTextChange} />
 
         <FormInput
           required
+          text={name}
           label="Имя"
           name="name"
           type="text"
           placeholder="Введите свое имя"
           minLength="2"
           maxLength="30"
-          onChange={handleNameChange} />
+          onTextChange={handleNameTextChange} />
 
       </fieldset>
     </PopupWithForm>

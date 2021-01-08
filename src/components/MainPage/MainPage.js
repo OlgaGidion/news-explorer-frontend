@@ -14,7 +14,7 @@ import './MainPage.css';
 const MainPage = () => {
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
-  const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(true);
+  const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -27,6 +27,10 @@ const MainPage = () => {
   const handleLoginPopupRegister = () => {
     setIsLoginPopupOpened(false);
     setIsRegisterPopupOpened(true);
+  };
+
+  const handleLoginPopupSuccess = () => {
+    setIsLoginPopupOpened(false);
   };
 
   const handleRegisterPopupClose = () => {
@@ -75,7 +79,8 @@ const MainPage = () => {
       <PopupLogin
         isOpen={isLoginPopupOpened}
         onClose={handleLoginPopupClose}
-        onRegister={handleLoginPopupRegister} />
+        onRegister={handleLoginPopupRegister}
+        onSuccess={handleLoginPopupSuccess} />
 
       <PopupRegister
         isOpen={isRegisterPopupOpened}

@@ -1,22 +1,21 @@
 import React from 'react';
 import './FormInput.css';
 
-const FormInput = ({ label, name, type, placeholder, required, minLength, maxLength, onChange }) => {
-  const [value, setValue] = React.useState('');
+const FormInput = ({ text, label, name, type, placeholder, required, minLength, maxLength, onTextChange }) => {
   const [error, setError] = React.useState(null);
   const inputRef = React.useRef();
 
-  const handleChange = (e) => {
-    const text = e.target.value;
-    setValue(text);
-
-    if (inputRef.current.validity.valid) {
+  React.useEffect(() => {
+    if (!text || inputRef.current.validity.valid) {
       setError(null);
-      onChange(text);
     } else {
       setError(inputRef.current.validationMessage);
-      onChange(null);
     }
+  }, [text]);
+
+  const handleInput = (e) => {
+    const { value } = e.target;
+    onTextChange(value);
   };
 
   const handleLabelClick = () => {
@@ -34,12 +33,12 @@ const FormInput = ({ label, name, type, placeholder, required, minLength, maxLen
         ref={inputRef}
         name={name}
         type={type}
-        value={value}
+        value={text}
         placeholder={placeholder}
         required={required}
         minLength={minLength}
         maxLength={maxLength}
-        onChange={handleChange} />
+        onInput={handleInput} />
 
       {error && <span className="form-input__input-error">
         {error}
