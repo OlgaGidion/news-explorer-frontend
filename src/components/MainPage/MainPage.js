@@ -8,11 +8,13 @@ import AboutAuthor from '../AboutAuthor/AboutAuthor';
 import Footer from '../Footer/Footer';
 import PopupLogin from '../PopupLogin/PopupLogin';
 import PopupRegister from '../PopupRegister/PopupRegister';
+import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
 import './MainPage.css';
 
 const MainPage = () => {
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
-  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState();
+  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
+  const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(true);
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -36,10 +38,19 @@ const MainPage = () => {
     setIsLoginPopupOpened(true);
   };
 
+  const handleRegisterPopupSuccess = () => {
+    setIsRegisterPopupOpened(false);
+    setIsRegisterSuccessPopupOpened(true);
+  };
+
+  const handleRegisterSuccessPopupClose = () => {
+    setIsRegisterSuccessPopupOpened(false);
+  };
+
   return (
     <main className="main-page">
       <div className="main-page__image-container">
-        <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened}>
+        <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened}>
           <Navigation isDark={false}>
             <a className="navigation__link navigation__link_color_light navigation__link_selected" href="/">Главная</a>
             <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
@@ -64,7 +75,12 @@ const MainPage = () => {
       <PopupRegister
         isOpen={isRegisterPopupOpened}
         onClose={handleRegisterPopupClose}
-        onLogin={handleRegisterPopupLogin} />
+        onLogin={handleRegisterPopupLogin}
+        onSuccess={handleRegisterPopupSuccess} />
+
+      <PopupRegisterSuccess
+        isOpen={isRegisterSuccessPopupOpened}
+        onClose={handleRegisterSuccessPopupClose} />
 
     </main>
   );

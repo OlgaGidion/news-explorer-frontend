@@ -10,7 +10,6 @@ const ButtonSolid = ({ text, type, disabled, classMix }) => {
   return (
     <button
       className={classList}
-      type="button"
       disabled={disabled}>
         {text}
     </button>
