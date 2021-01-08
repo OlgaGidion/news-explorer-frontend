@@ -6,25 +6,44 @@ import SearchForm from '../SearchForm/SearchForm';
 import SearchResults from '../SearchResults/SearchResults';
 import AboutAuthor from '../AboutAuthor/AboutAuthor';
 import Footer from '../Footer/Footer';
+import PopupLogin from '../PopupLogin/PopupLogin';
 import PopupRegister from '../PopupRegister/PopupRegister';
-import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
 const MainPage = () => {
-  const [isPopupOpened, setIsPopupOpened] = React.useState(false);
+  const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
+  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState();
 
-  const handlePopupClose = () => {
-    setIsPopupOpened(false);
+  const handleLoginButtonClick = () => {
+    setIsLoginPopupOpened(true);
+  };
+
+  const handleLoginPopupClose = () => {
+    setIsLoginPopupOpened(false);
+  };
+
+  const handleLoginPopupRegister = () => {
+    setIsLoginPopupOpened(false);
+    setIsRegisterPopupOpened(true);
+  };
+
+  const handleRegisterPopupLogin = () => {
+    setIsRegisterPopupOpened(false);
+    setIsLoginPopupOpened(true);
+  };
+
+  const handleRegisterPopupClose = () => {
+    setIsRegisterPopupOpened(false);
   };
 
   return (
     <main className="main-page">
       <div className="main-page__image-container">
-        <Header isDark={false} isVisibleOnMobile={!isPopupOpened}>
+        <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened}>
           <Navigation isDark={false}>
             <a className="navigation__link navigation__link_color_light navigation__link_selected" href="/">Главная</a>
             <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
-            <ButtonWired type="light" text="Грета" image={logoutImageLight} imageAlt="Выйти" classMix="navigation__wired-button" />
+            <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLoginButtonClick} />
           </Navigation>
         </Header>
         <div className="main-page__content">
@@ -37,7 +56,8 @@ const MainPage = () => {
       <AboutAuthor />
       <Footer />
 
-      <PopupRegister isOpen={isPopupOpened} onClose={handlePopupClose} />
+      <PopupLogin isOpen={isLoginPopupOpened} onClose={handleLoginPopupClose} onRegister={handleLoginPopupRegister} />
+      <PopupRegister isOpen={isRegisterPopupOpened} onClose={handleRegisterPopupClose} onLogin={handleRegisterPopupLogin} />
 
     </main>
   );

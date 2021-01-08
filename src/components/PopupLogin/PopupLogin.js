@@ -2,7 +2,7 @@ import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
 
-const PopupLogin = ({ isOpen, onClose }) => {
+const PopupLogin = ({ isOpen, onClose, onRegister }) => {
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
 
@@ -25,7 +25,8 @@ const PopupLogin = ({ isOpen, onClose }) => {
       inProgressText="Вход..."
       isOpen={isOpen}
       isButtonDisabled={isButtonDisabled}
-      onClose={onClose}>
+      onClose={onClose}
+      onSecondaryButtonClick={onRegister}>
 
       <fieldset className="popup-with-form__fieldset">
 

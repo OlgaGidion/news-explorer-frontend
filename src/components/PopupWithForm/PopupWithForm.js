@@ -14,6 +14,7 @@ const PopupWithForm = ({
   isButtonDisabled,
   onClose,
   onSubmit,
+  onSecondaryButtonClick,
   children,
 }) => {
   const [buttonText, setButtonText] = React.useState(actionText);
@@ -45,7 +46,7 @@ const PopupWithForm = ({
         <ButtonSolid type="blue" classMix="popup-with-form__submit-button" text={buttonText} disabled={isButtonDisabled || isInProgress} />
 
         <p className="popup-with-form__footer">
-          или <ButtonText text={secondaryButtonText} />
+          или <ButtonText text={secondaryButtonText} onClick={onSecondaryButtonClick} />
         </p>
       </form>
     </Popup>
