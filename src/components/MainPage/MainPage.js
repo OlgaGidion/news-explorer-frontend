@@ -27,13 +27,13 @@ const MainPage = () => {
     setIsRegisterPopupOpened(true);
   };
 
+  const handleRegisterPopupClose = () => {
+    setIsRegisterPopupOpened(false);
+  };
+
   const handleRegisterPopupLogin = () => {
     setIsRegisterPopupOpened(false);
     setIsLoginPopupOpened(true);
-  };
-
-  const handleRegisterPopupClose = () => {
-    setIsRegisterPopupOpened(false);
   };
 
   return (
@@ -56,8 +56,15 @@ const MainPage = () => {
       <AboutAuthor />
       <Footer />
 
-      <PopupLogin isOpen={isLoginPopupOpened} onClose={handleLoginPopupClose} onRegister={handleLoginPopupRegister} />
-      <PopupRegister isOpen={isRegisterPopupOpened} onClose={handleRegisterPopupClose} onLogin={handleRegisterPopupLogin} />
+      <PopupLogin
+        isOpen={isLoginPopupOpened}
+        onClose={handleLoginPopupClose}
+        onRegister={handleLoginPopupRegister} />
+
+      <PopupRegister
+        isOpen={isRegisterPopupOpened}
+        onClose={handleRegisterPopupClose}
+        onLogin={handleRegisterPopupLogin} />
 
     </main>
   );
