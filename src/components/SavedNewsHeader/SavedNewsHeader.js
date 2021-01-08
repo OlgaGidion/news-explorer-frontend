@@ -1,3 +1,4 @@
+import React from 'react';
 import './SavedNewsHeader.css';
 
 const SavedNewsHeader = ({ userName, articlesCount, keywords }) => {
@@ -12,11 +13,11 @@ const SavedNewsHeader = ({ userName, articlesCount, keywords }) => {
     : keywords;
 
   const keywordElements = keywordHighlights.map((highlight, i) => (
-    <>
-      <span key={i} className="saved-news-header__highlight">{highlight}</span>
+    <React.Fragment key={i}>
+      <span className="saved-news-header__highlight">{highlight}</span>
       {i < keywordHighlights.length - 2 && <>, </>}
       {i === keywordHighlights.length - 2 && <> и </>}
-    </>
+    </React.Fragment>
   ));
 
   return (
