@@ -1,11 +1,11 @@
 .navigation {
   display: flex;
+  height: 100%;
 }
 
 .navigation__container {
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 .navigation__link {
@@ -21,16 +21,18 @@
 
 .navigation__link_color_dark {
   color: #1A1B22;
-  border-bottom: 0 solid #1A1B22;
 }
 
 .navigation__link_color_light {
   color: white;
-  border-bottom: 0 solid white;
 }
 
-.navigation__link_selected {
-  border-bottom-width: 3px;
+.navigation__link_selected_dark {
+  box-shadow: 0 -3px 0 #1A1B22 inset;
+}
+
+.navigation__link_selected_light {
+  box-shadow: 0 -3px 0 white inset;
 }
 
 .navigation__menu-button {

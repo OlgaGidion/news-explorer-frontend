@@ -1,9 +1,22 @@
 import React from 'react';
-import { closeEffect } from '../../utils/utils';
 import './Popup.css';
 
 const Popup = ({ title, isOpen, onClose, children }) => {
-  React.useEffect(closeEffect(isOpen, onClose), [isOpen, onClose]);
+  React.useEffect(() => {
+    const handleDocumentKeydown = (evt) => {
+      if (evt.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleDocumentKeydown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleDocumentKeydown);
+    };
+  }, [isOpen, onClose]);
 
   const handleClose = () => {
     onClose();

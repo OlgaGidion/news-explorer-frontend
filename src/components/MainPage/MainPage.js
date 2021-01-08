@@ -61,7 +61,7 @@ const MainPage = () => {
       <div className="main-page__image-container">
         <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened}>
           <Navigation isDark={false}>
-            <a className="navigation__link navigation__link_color_light navigation__link_selected" href="/">Главная</a>
+            <a className="navigation__link navigation__link_color_light navigation__link_selected_light" href="/">Главная</a>
             <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
             <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLoginButtonClick} />
           </Navigation>

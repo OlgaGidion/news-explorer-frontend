@@ -12,7 +12,7 @@ const SavedNewsPage = () => (
     <Header isDark={true} isVisibleOnMobile={true}>
       <Navigation isDark={true}>
         <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
-        <a className="navigation__link navigation__link_color_dark navigation__link_selected" href="/saved-news">Сохранённые статьи</a>
+        <a className="navigation__link navigation__link_color_dark navigation__link_selected_dark" href="/saved-news">Сохранённые статьи</a>
         <ButtonWired type="dark" text="Грета" image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" />
       </Navigation>
     </Header>
