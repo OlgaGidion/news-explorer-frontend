@@ -47,6 +47,11 @@ const MainPage = () => {
     setIsRegisterSuccessPopupOpened(false);
   };
 
+  const handleRegisterSuccessPopupLogin = () => {
+    setIsRegisterSuccessPopupOpened(false);
+    setIsLoginPopupOpened(true);
+  };
+
   return (
     <main className="main-page">
       <div className="main-page__image-container">
@@ -80,7 +85,8 @@ const MainPage = () => {
 
       <PopupRegisterSuccess
         isOpen={isRegisterSuccessPopupOpened}
-        onClose={handleRegisterSuccessPopupClose} />
+        onClose={handleRegisterSuccessPopupClose}
+        onLogin={handleRegisterSuccessPopupLogin} />
 
     </main>
   );
