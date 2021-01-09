@@ -34,10 +34,15 @@
 
 .footer__text-item {
   margin-right: 30px;
+  transition: opacity 0.2s;
 }
 
 .footer__text-item:last-child {
   margin-right: 0;
+}
+
+.footer__text-item:hover {
+  opacity: 0.65;
 }
 
 .footer__link {
@@ -48,10 +53,15 @@
 
 .footer__image-item {
   margin-right: 25px;
+  transition: opacity 0.2s;
 }
 
 .footer__image-item:last-child {
   margin-right: 0;
+}
+
+.footer__image-item:hover {
+  opacity: 0.65;
 }
 
 .footer__icon {
