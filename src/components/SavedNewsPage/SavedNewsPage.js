@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import Header from '../Header/Header';
+import Header from '../Header2/Header';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
