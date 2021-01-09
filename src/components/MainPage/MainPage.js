@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header2/Header';
+import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
 import SearchForm from '../SearchForm/SearchForm';
