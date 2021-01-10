@@ -13,13 +13,20 @@ const FormInput = ({ text, label, name, type, placeholder, required, minLength, 
     }
   }, [text]);
 
+  const handleLabelClick = () => {
+    inputRef.current.focus();
+    inputRef.current.select();
+  };
+
   const handleInput = (e) => {
     const { value } = e.target;
     onTextChange(value);
   };
 
-  const handleLabelClick = () => {
-    inputRef.current.focus();
+  const handleInputClick = (e) => {
+    const inputElement = e.target;
+    inputElement.focus();
+    inputElement.select();
   };
 
   return (
@@ -38,7 +45,8 @@ const FormInput = ({ text, label, name, type, placeholder, required, minLength, 
         required={required}
         minLength={minLength}
         maxLength={maxLength}
-        onInput={handleInput} />
+        onInput={handleInput}
+        onClick={handleInputClick} />
 
       {error && <span className="form-input__input-error">
         {error}
