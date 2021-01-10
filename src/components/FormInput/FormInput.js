@@ -31,7 +31,7 @@ const FormInput = ({ text, label, name, type, placeholder, required, minLength, 
 
   return (
     <>
-      <label className="form-input__label" htmlFor={name} onClick={handleLabelClick}>
+      <label className="form-input__label" onClick={handleLabelClick}>
         {label}
       </label>
 

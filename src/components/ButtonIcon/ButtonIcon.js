@@ -17,7 +17,7 @@ const ButtonIcon = ({ image, actionText, hintText, classMix }) => {
   return (
     <button className={`button-icon ${classMix}`} type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <img className="button-icon__image" src={image} alt={actionText} />
-      <div className={`button-icon__hint ${hintMod}`}>{hintText}</div>
+      <span className={`button-icon__hint ${hintMod}`}>{hintText}</span>
     </button>
   );
 };
