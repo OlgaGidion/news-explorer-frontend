@@ -48,6 +48,7 @@
 @media (max-width: 767px) {
   .main-page__content {
     width: 100%;
+    max-width: 448px;
     padding: 30px 16px 32px;
   }
 
