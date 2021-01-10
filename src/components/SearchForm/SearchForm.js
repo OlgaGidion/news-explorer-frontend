@@ -26,7 +26,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
           onClick={handleInputClick}
           required />
       </form>
-      <ButtonSolid type="blue" text={buttonText} />
+      <ButtonSolid type="blue" text={buttonText} disabled={text.length === 0} />
     </div>
   );
 };
