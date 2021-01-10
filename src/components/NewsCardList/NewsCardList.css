@@ -29,6 +29,8 @@
   }
 
   .news-cards__list {
+    max-width: 448px;
+    margin: 0 auto;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 10px;
   }

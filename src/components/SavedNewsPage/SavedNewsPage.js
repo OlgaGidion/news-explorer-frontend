@@ -29,7 +29,9 @@ const SavedNewsPage = () => {
         userName="Грета"
         articlesCount={5}
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
+
       <NewsCardList />
+
       <Footer />
     </main>
   );

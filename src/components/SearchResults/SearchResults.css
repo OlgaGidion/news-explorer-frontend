@@ -48,11 +48,13 @@
   }
 
   .search-results__headline {
-    margin-bottom: 24px;
+    margin: 0 auto 24px;
+    max-width: 448px;
   }
 
   .search-results__list {
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
+    max-width: 448px;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 10px;
   }
