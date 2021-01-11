@@ -1,0 +1,23 @@
+.search-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-not-found__headline {
+  margin: 0 0 16px;
+  width: 25%;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.search-not-found__subline {
+  margin: 24px 0 0;
+  width: 25%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #B6BCBF;
+}

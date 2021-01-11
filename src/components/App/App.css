@@ -1,0 +1,9 @@
+.app {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-width: 320px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -8,8 +8,13 @@
     "@testing-library/user-event": "^12.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,8 +25,20 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "airbnb-base"
+    ],
+    "rules": {
+      "max-len": [
+        0
+      ],
+      "object-curly-newline": [
+        0
+      ],
+      "import/prefer-default-export": [
+        0
+      ]
+    }
   },
   "browserslist": {
     "production": [

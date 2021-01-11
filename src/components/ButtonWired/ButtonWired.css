@@ -1,0 +1,64 @@
+.button-wired {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  height: 48px;
+  border-radius: 24px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.button-wired_type_dark {
+  border: 1px #D1D2D6 solid;
+  color: black;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.button-wired_type_dark:hover {
+  border-color: black;
+}
+
+.button-wired_type_dark:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.button-wired_type_light {
+  border: 1px white solid;
+  color: white;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.button-wired_type_light:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.button-wired_type_light:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button-wired__icon-right {
+  margin-left: 5px;
+}
+
+@media (max-width: 1439px) {
+  .button-wired {
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button-wired {
+    height: 56px;
+    border-radius: 28px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,25 @@
+.popup-with-form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-with-form__submit-button {
+  width: 100%;
+  margin-top: 36px;
+}
+
+.popup-with-form__error-text {
+  color: red;
+  margin: 25px 0 -25px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+.popup-with-form__footer {
+  margin: 16px 0 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}

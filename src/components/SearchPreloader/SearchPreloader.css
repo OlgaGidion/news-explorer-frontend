@@ -1,0 +1,24 @@
+.search-preloader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-preloader__image {
+  width: 74px;
+  height: 74px;
+  animation: spin 1.25s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.search-preloader__subline {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 18px;
+  color: #B6BCBF;
+}
