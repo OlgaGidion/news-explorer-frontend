@@ -3,8 +3,8 @@ import ButtonSolid from '../ButtonSolid/ButtonSolid';
 import api from '../../utils/NewsApi';
 import './SearchForm.css';
 
-const SearchForm = ({ placeholder, buttonText }) => {
-  const [text, setText] = React.useState('');
+const SearchForm = ({ placeholder, buttonText, onResult }) => {
+  const [text, setText] = React.useState('тайга');
 
   const handleInput = (e) => {
     setText(e.target.value);
@@ -19,7 +19,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
   const handleSearchButtonClick = () => {
     api.search(text)
       .then((result) => {
-        console.log(result);
+        onResult(result.articles);
       });
   };
 

@@ -15,6 +15,7 @@ const MainPage = () => {
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
+  const [foundArticles, setFoundArticles] = React.useState([]);
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -56,6 +57,10 @@ const MainPage = () => {
     setIsLoginPopupOpened(true);
   };
 
+  const handleSearchFormResults = (articles) => {
+    setFoundArticles(articles);
+  };
+
   return (
     <main className="main-page">
       <div className="main-page__image-container">
@@ -69,10 +74,10 @@ const MainPage = () => {
         <div className="main-page__content">
           <h1 className="main-page__headline">Что творится в мире?</h1>
           <p className="main-page__subline">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-          <SearchForm placeholder="Введите тему новости" buttonText="Искать" />
+          <SearchForm placeholder="Введите тему новости" buttonText="Искать" onResult={handleSearchFormResults} />
         </div>
       </div>
-      <SearchResults />
+      <SearchResults articles={foundArticles} />
       <AboutAuthor />
       <Footer />
 
