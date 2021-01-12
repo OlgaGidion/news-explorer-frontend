@@ -5,6 +5,12 @@ const NewsCard = ({ headline, text, source, date, category, imageUrl, children }
     ? 'news-card__category'
     : 'news-card__category news-card__category_hidden';
 
+  const formattedDate = new Date(date).toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <div className="news-card">
       <div className="news-card__image-container">
@@ -17,7 +23,7 @@ const NewsCard = ({ headline, text, source, date, category, imageUrl, children }
         </div>
       </div>
       <div className="news-card__text-container">
-        <p className="news-card__date">{date}</p>
+        <p className="news-card__date">{formattedDate}</p>
         <h3 className="news-card__headline">{headline}</h3>
         <div className="news-card__description-container">
           <p className="news-card__description">{text}</p>
