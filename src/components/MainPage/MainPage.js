@@ -15,7 +15,7 @@ const MainPage = () => {
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
-  const [foundArticles, setFoundArticles] = React.useState([]);
+  const [foundArticles, setFoundArticles] = React.useState(null);
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -77,7 +77,9 @@ const MainPage = () => {
           <SearchForm placeholder="Введите тему новости" buttonText="Искать" onResult={handleSearchFormResults} />
         </div>
       </div>
-      <SearchResults articles={foundArticles} />
+      {foundArticles !== null &&
+        <SearchResults articles={foundArticles} />
+      }
       <AboutAuthor />
       <Footer />
 
