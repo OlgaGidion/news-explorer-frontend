@@ -39,6 +39,10 @@
   border-radius: 10px;
 }
 
+.news-card__category_hidden {
+  visibility: hidden;
+}
+
 .news-card__category-text {
   margin: 8px 12px;
   overflow: hidden;
