@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonSolid from '../ButtonSolid/ButtonSolid';
+import api from '../../utils/NewsApi';
 import './SearchForm.css';
 
 const SearchForm = ({ placeholder, buttonText }) => {
@@ -15,6 +16,13 @@ const SearchForm = ({ placeholder, buttonText }) => {
     inputElement.select();
   };
 
+  const handleSearchButtonClick = () => {
+    api.search(text)
+      .then((result) => {
+        console.log(result);
+      });
+  };
+
   return (
     <div className="search-form">
       <form className="search-form__form">
@@ -26,7 +34,7 @@ const SearchForm = ({ placeholder, buttonText }) => {
           onClick={handleInputClick}
           required />
       </form>
-      <ButtonSolid type="blue" text={buttonText} disabled={text.length === 0} />
+      <ButtonSolid type="blue" text={buttonText} onClick={handleSearchButtonClick} />
     </div>
   );
 };
