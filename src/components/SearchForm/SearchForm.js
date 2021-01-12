@@ -4,7 +4,7 @@ import api from '../../utils/NewsApi';
 import './SearchForm.css';
 
 const SearchForm = ({ placeholder, buttonText, onResult }) => {
-  const [text, setText] = React.useState('tesla');
+  const [text, setText] = React.useState('');
 
   const search = () => {
     if (text.length === 0) {
