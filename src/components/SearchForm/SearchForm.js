@@ -1,20 +1,12 @@
 import React from 'react';
 import ButtonSolid from '../ButtonSolid/ButtonSolid';
-import api from '../../utils/NewsApi';
 import './SearchForm.css';
 
-const SearchForm = ({ placeholder, buttonText, onResult }) => {
+const SearchForm = ({ placeholder, buttonText, onSearch }) => {
   const [text, setText] = React.useState('');
 
   const search = () => {
-    if (text.length === 0) {
-      onResult([]);
-      return;
-    }
-
-    api.search(text).then((result) => {
-      onResult(result.articles);
-    });
+    onSearch(text);
   };
 
   const handleInput = (e) => {

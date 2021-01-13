@@ -9,13 +9,15 @@ import Footer from '../Footer/Footer';
 import PopupLogin from '../PopupLogin/PopupLogin';
 import PopupRegister from '../PopupRegister/PopupRegister';
 import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
+import api from '../../utils/NewsApi';
 import './MainPage.css';
 
 const MainPage = () => {
+  const [isSearching, setIsSearching] = React.useState(false);
+  const [foundArticles, setFoundArticles] = React.useState(null);
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
-  const [foundArticles, setFoundArticles] = React.useState(null);
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -57,8 +59,21 @@ const MainPage = () => {
     setIsLoginPopupOpened(true);
   };
 
-  const handleSearchFormResults = (articles) => {
-    setFoundArticles(articles);
+  const handleSearch = (text) => {
+    if (text.length === 0) {
+      setFoundArticles([]);
+      return;
+    }
+
+    setIsSearching(true);
+
+    api.search(text)
+      .then((result) => {
+        setFoundArticles(result.articles);
+      })
+      .finally(() => {
+        setIsSearching(false);
+      });
   };
 
   return (
@@ -74,11 +89,11 @@ const MainPage = () => {
         <div className="main-page__content">
           <h1 className="main-page__headline">Что творится в мире?</h1>
           <p className="main-page__subline">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-          <SearchForm placeholder="Введите тему новости" buttonText="Искать" onResult={handleSearchFormResults} />
+          <SearchForm placeholder="Введите тему новости" buttonText="Искать" onSearch={handleSearch} />
         </div>
       </div>
       {foundArticles !== null &&
-        <SearchResults articles={foundArticles} />
+        <SearchResults isSearching={isSearching} articles={foundArticles} />
       }
       <AboutAuthor />
       <Footer />
