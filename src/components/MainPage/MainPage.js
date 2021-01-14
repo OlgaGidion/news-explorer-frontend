@@ -13,9 +13,10 @@ import api from '../../utils/NewsApi';
 import './MainPage.css';
 
 const MainPage = () => {
+  const [searchText, setSearchText] = React.useState(null);
   const [isSearching, setIsSearching] = React.useState(false);
   const [foundArticles, setFoundArticles] = React.useState(null);
-  const [searchText, setSearchText] = React.useState(null);
+  const [totalArticles, setTotalArticles] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(0);
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
@@ -64,6 +65,7 @@ const MainPage = () => {
   const handleSearch = (text) => {
     if (text.length === 0) {
       setFoundArticles([]);
+      setTotalArticles(0);
       setSearchText(null);
       return;
     }
@@ -75,6 +77,7 @@ const MainPage = () => {
     api.search(text, 3, 1)
       .then((result) => {
         setFoundArticles(result.articles);
+        setTotalArticles(result.totalResults);
       })
       .finally(() => {
         setIsSearching(false);
@@ -88,6 +91,7 @@ const MainPage = () => {
     api.search(searchText, 3, page)
       .then((result) => {
         setFoundArticles([...foundArticles, ...result.articles]);
+        setTotalArticles(result.totalResults);
       });
   };
 
@@ -108,7 +112,7 @@ const MainPage = () => {
         </div>
       </div>
       {foundArticles !== null &&
-        <SearchResults isSearching={isSearching} articles={foundArticles} onShowMore={handleShowMore} />
+        <SearchResults isSearching={isSearching} articles={foundArticles} totalArticles={totalArticles} onShowMore={handleShowMore} />
       }
       <AboutAuthor />
       <Footer />

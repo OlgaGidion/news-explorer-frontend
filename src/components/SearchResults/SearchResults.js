@@ -5,7 +5,7 @@ import SearchNotFound from '../SearchNotFound/SearchNotFound';
 import SearchPreloader from '../SearchPreloader/SearchPreloader';
 import './SearchResults.css';
 
-const SearchResults = ({ isSearching, articles, onShowMore }) => {
+const SearchResults = ({ isSearching, articles, totalArticles, onShowMore }) => {
   if (isSearching) {
     return (
       <section className="search-results">
@@ -38,9 +38,11 @@ const SearchResults = ({ isSearching, articles, onShowMore }) => {
           </li>
         ))}
       </ul>
-      <div className="search-results__button-container">
-        <ButtonSolid type="white" text="Показать еще" onClick={onShowMore} />
-      </div>
+      {articles.length < totalArticles &&
+        <div className="search-results__button-container">
+          <ButtonSolid type="white" text="Показать еще" onClick={onShowMore} />
+        </div>
+      }
     </section>
   );
 };
