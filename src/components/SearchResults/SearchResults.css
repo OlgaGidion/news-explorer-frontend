@@ -17,13 +17,18 @@
   grid-template-rows: auto;
   gap: 16px;
   padding: 0;
-  margin: 0 0 64px;
+  margin: 0;
   list-style-type: none;
 }
 
 .search-results__button-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-results__spacer {
+  height: 64px;
 }
 
 @media (max-width: 1439px) {
@@ -37,8 +42,11 @@
   }
 
   .search-results__list {
-    margin-bottom: 32px;
     gap: 8px;
+  }
+
+  .search-results__spacer {
+    height: 32px;
   }
 }
 
@@ -53,9 +61,19 @@
   }
 
   .search-results__list {
-    margin: 0 auto 15px;
+    margin: 0 auto;
     max-width: 448px;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 10px;
+  }
+
+  .search-results__button-container {
+    align-items: stretch;
+    margin: 0 auto;
+    max-width: 448px;
+  }
+
+  .search-results__spacer {
+    height: 15px;
   }
 }

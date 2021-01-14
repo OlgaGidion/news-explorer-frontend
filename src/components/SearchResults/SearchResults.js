@@ -28,11 +28,18 @@ const SearchResults = ({ isSearching, articles, totalArticles, onShowMore }) => 
           ))}
         </ul>
         {articles.length < totalArticles && !isSearching &&
-          <div className="search-results__button-container">
-            <ButtonSolid type="white" text="Показать еще" onClick={onShowMore} />
-          </div>
+          <>
+            <div className="search-results__spacer" />
+            <div className="search-results__button-container">
+              <ButtonSolid type="white" text="Показать еще" onClick={onShowMore} />
+            </div>
+          </>
         }
       </>
+    }
+
+    {articles.length > 0 && isSearching &&
+      <div className="search-results__spacer" />
     }
 
     {isSearching &&
