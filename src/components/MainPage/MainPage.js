@@ -70,6 +70,7 @@ const MainPage = () => {
       return;
     }
 
+    setFoundArticles([]);
     setIsSearching(true);
     setSearchText(text);
     setCurrentPage(1);
@@ -88,10 +89,15 @@ const MainPage = () => {
     const page = currentPage + 1;
     setCurrentPage(page);
 
+    setIsSearching(true);
+
     api.search(searchText, 3, page)
       .then((result) => {
         setFoundArticles([...foundArticles, ...result.articles]);
         setTotalArticles(result.totalResults);
+      })
+      .finally(() => {
+        setIsSearching(false);
       });
   };
 
