@@ -10,6 +10,7 @@ import PopupLogin from '../PopupLogin/PopupLogin';
 import PopupRegister from '../PopupRegister/PopupRegister';
 import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
 import api from '../../utils/NewsApi';
+import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import './MainPage.css';
 
 const MainPage = () => {
@@ -75,7 +76,10 @@ const MainPage = () => {
     setSearchText(text);
     setCurrentPage(1);
 
-    api.search(text, 3, 1)
+    const today = getToday();
+    const weekAgo = getWeekAgo();
+
+    api.search(text, 3, 1, weekAgo.toISOString(), today.toISOString())
       .then((result) => {
         setFoundArticles(result.articles);
         setTotalArticles(result.totalResults);
@@ -91,7 +95,10 @@ const MainPage = () => {
 
     setIsSearching(true);
 
-    api.search(searchText, 3, page)
+    const today = getToday();
+    const weekAgo = getWeekAgo();
+
+    api.search(searchText, 3, page, weekAgo.toISOString(), today.toISOString())
       .then((result) => {
         setFoundArticles([...foundArticles, ...result.articles]);
         setTotalArticles(result.totalResults);

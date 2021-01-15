@@ -12,8 +12,8 @@ class NewsApi {
     this.key = key;
   }
 
-  search(query, pageSize, page) {
-    return fetch(`${this.baseUrl}/everything?q=${query}&pageSize=${pageSize}&page=${page}&apiKey=${this.key}`, {
+  search(query, pageSize, page, from, to) {
+    return fetch(`${this.baseUrl}/everything?q=${query}&pageSize=${pageSize}&page=${page}&from=${from}&to=${to}&apiKey=${this.key}`, {
       method: 'GET',
     })
       .then(handleResponse);
