@@ -7,13 +7,15 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
+  const [isInProgress, setIsInProgress] = React.useState(false);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     if (isOpen) {
-      setEmail('olga@munich.de');
-      setPassword('qwerty123');
-      setName('Olga');
+      setEmail('');
+      setPassword('');
+      setName('');
+      setIsInProgress(false);
       setError(null);
     }
   }, [isOpen]);
@@ -33,6 +35,7 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
   };
 
   const handleSubmit = () => {
+    setIsInProgress(true);
     setError(null);
 
     MainApi.register(email, password, name)
@@ -40,6 +43,7 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
         onSuccess();
       })
       .catch((apiError) => {
+        setIsInProgress(false);
         setError(apiError.message);
       });
   };
@@ -51,6 +55,7 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
       actionText="Зарегистрироваться"
       secondaryButtonText="Войти"
       inProgressText="Регистрация..."
+      isInProgress={isInProgress}
       isOpen={isOpen}
       isButtonDisabled={isButtonDisabled}
       error={error}

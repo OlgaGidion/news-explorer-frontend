@@ -10,6 +10,7 @@ const PopupWithForm = ({
   actionText,
   secondaryButtonText,
   inProgressText,
+  isInProgress,
   isOpen,
   isButtonDisabled,
   error,
@@ -19,20 +20,17 @@ const PopupWithForm = ({
   children,
 }) => {
   const [buttonText, setButtonText] = React.useState(actionText);
-  const [isInProgress, setIsInProgress] = React.useState(false);
 
   React.useEffect(() => {
-    if (isOpen) {
+    if (!isInProgress) {
       setButtonText(actionText);
-      setIsInProgress(false);
     }
-  }, [isOpen, actionText]);
+  }, [isInProgress, actionText]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     setButtonText(inProgressText);
-    setIsInProgress(true);
     onSubmit();
   };
 

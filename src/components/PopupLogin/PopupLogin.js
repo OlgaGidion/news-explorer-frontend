@@ -32,6 +32,7 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
       inProgressText="Вход..."
       isOpen={isOpen}
       isButtonDisabled={isButtonDisabled}
+      error={null}
       onClose={onClose}
       onSecondaryButtonClick={onRegister}
       onSubmit={onSuccess}>
