@@ -12,6 +12,7 @@ const PopupWithForm = ({
   inProgressText,
   isOpen,
   isButtonDisabled,
+  error,
   onClose,
   onSubmit,
   onSecondaryButtonClick,
@@ -41,7 +42,9 @@ const PopupWithForm = ({
 
         {children}
 
-        <p className="popup-with-form__error-text">Такой пользователь уже есть</p>
+        {error !== null &&
+          <p className="popup-with-form__error-text">{error}</p>
+        }
 
         <ButtonSolid type="blue" classMix="popup-with-form__submit-button" text={buttonText} disabled={isButtonDisabled || isInProgress} />
 

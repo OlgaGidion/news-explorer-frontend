@@ -1,17 +1,20 @@
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
+import MainApi from '../../utils/MainApi';
 
 const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     if (isOpen) {
-      setEmail('');
-      setPassword('');
-      setName('');
+      setEmail('olga@munich.de');
+      setPassword('qwerty123');
+      setName('Olga');
+      setError(null);
     }
   }, [isOpen]);
 
@@ -29,6 +32,18 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
     setName(text);
   };
 
+  const handleSubmit = () => {
+    setError(null);
+
+    MainApi.register(email, password, name)
+      .then(() => {
+        onSuccess();
+      })
+      .catch((apiError) => {
+        setError(apiError.message);
+      });
+  };
+
   return (
     <PopupWithForm
       name="register"
@@ -38,9 +53,10 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
       inProgressText="Регистрация..."
       isOpen={isOpen}
       isButtonDisabled={isButtonDisabled}
+      error={error}
       onClose={onClose}
       onSecondaryButtonClick={onLogin}
-      onSubmit={onSuccess}>
+      onSubmit={handleSubmit}>
 
       <fieldset className="popup-with-form__fieldset">
 

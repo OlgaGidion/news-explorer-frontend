@@ -3,7 +3,13 @@ const handleResponse = (res) => {
     return res.json();
   }
 
-  return Promise.reject(new Error(`Ошибка: ${res.status} ${res.statusText}`));
+  return res.json()
+    .then((json) => {
+      throw new Error(json.message);
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
 class NewsApi {
