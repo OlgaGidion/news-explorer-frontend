@@ -11,8 +11,8 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
 
   React.useEffect(() => {
     if (isOpen) {
-      setEmail('');
-      setPassword('');
+      setEmail('munich@mail.de');
+      setPassword('qwerty123');
       setIsInProgress(false);
       setError(null);
     }
@@ -33,8 +33,8 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
     setError(null);
 
     MainApi.login(email, password)
-      .then(({ token }) => {
-        onSuccess(token);
+      .then(({ token, name }) => {
+        onSuccess(token, name);
       })
       .catch((apiError) => {
         setIsInProgress(false);

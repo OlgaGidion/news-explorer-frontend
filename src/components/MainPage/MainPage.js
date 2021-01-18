@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
@@ -11,9 +12,11 @@ import PopupRegister from '../PopupRegister/PopupRegister';
 import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
 import api from '../../utils/NewsApi';
 import { getToday, getWeekAgo } from '../../utils/timeUtils';
+import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = () => {
+const MainPage = ({ onLogin }) => {
+  const currentUser = React.useContext(CurrentUserContext);
   const [searchText, setSearchText] = React.useState(null);
   const [isSearching, setIsSearching] = React.useState(false);
   const [foundArticles, setFoundArticles] = React.useState(null);
@@ -27,6 +30,9 @@ const MainPage = () => {
     setIsLoginPopupOpened(true);
   };
 
+  const handleLogoutButtonClick = () => {
+  };
+
   const handleLoginPopupClose = () => {
     setIsLoginPopupOpened(false);
   };
@@ -36,9 +42,9 @@ const MainPage = () => {
     setIsRegisterPopupOpened(true);
   };
 
-  const handleLoginPopupSuccess = (token) => {
-    console.log('we got token', token);
+  const handleLoginPopupSuccess = (token, name) => {
     setIsLoginPopupOpened(false);
+    onLogin(token, name);
   };
 
   const handleRegisterPopupClose = () => {
@@ -115,8 +121,15 @@ const MainPage = () => {
         <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened}>
           <Navigation isDark={false}>
             <a className="navigation__link navigation__link_color_light navigation__link_selected_light" href="/">Главная</a>
-            <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
-            <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLoginButtonClick} />
+            {currentUser &&
+              <>
+                <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
+                <ButtonWired type="light" text={currentUser.name} image={logoutImageLight} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
+              </>
+            }
+            {!currentUser &&
+              <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLoginButtonClick} />
+            }
           </Navigation>
         </Header>
         <div className="main-page__content">

@@ -1,4 +1,5 @@
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
@@ -9,10 +10,9 @@ import logoutImageDark from '../../images/logout-dark.svg';
 import './SavedNewsPage.css';
 
 const SavedNewsPage = () => {
-  const history = useHistory();
+  const currentUser = React.useContext(CurrentUserContext);
 
   const handleLogoutButtonClick = () => {
-    history.replace('/');
   };
 
   return (
@@ -21,12 +21,12 @@ const SavedNewsPage = () => {
         <Navigation isDark={true}>
           <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
           <a className="navigation__link navigation__link_color_dark navigation__link_selected_dark" href="/saved-news">Сохранённые статьи</a>
-          <ButtonWired type="dark" text="Грета" image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
+          <ButtonWired type="dark" text={currentUser.name} image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
         </Navigation>
       </Header>
 
       <SavedNewsHeader
-        userName="Грета"
+        userName={currentUser.name}
         articlesCount={5}
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
 
