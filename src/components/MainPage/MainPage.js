@@ -36,7 +36,8 @@ const MainPage = () => {
     setIsRegisterPopupOpened(true);
   };
 
-  const handleLoginPopupSuccess = () => {
+  const handleLoginPopupSuccess = (token) => {
+    console.log('we got token', token);
     setIsLoginPopupOpened(false);
   };
 

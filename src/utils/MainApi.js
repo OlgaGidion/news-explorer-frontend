@@ -47,7 +47,7 @@ class MainApi {
       headers: this.headers,
       body: JSON.stringify({ email, password }),
     })
-      .then(this.handleResponse);
+      .then(handleResponse);
   }
 
   getMyUser() {
@@ -55,7 +55,7 @@ class MainApi {
       method: 'GET',
       headers: this.headersWithAuth,
     })
-      .then(this.handleResponse);
+      .then(handleResponse);
   }
 
   getMyArticles() {
@@ -63,7 +63,7 @@ class MainApi {
       method: 'GET',
       headers: this.headersWithAuth,
     })
-      .then(this.handleResponse);
+      .then(handleResponse);
   }
 
   saveArticle(keyword, title, description, date, source, link, image) {
@@ -72,7 +72,7 @@ class MainApi {
       headers: this.headersWithAuth,
       body: JSON.stringify({ keyword, title, description, date, source, link, image }),
     })
-      .then(this.handleResponse);
+      .then(handleResponse);
   }
 
   unsaveArticle(articleId) {
@@ -80,7 +80,7 @@ class MainApi {
       method: 'DELETE',
       headers: this.headersWithAuth,
     })
-      .then(this.handleResponse);
+      .then(handleResponse);
   }
 }
 

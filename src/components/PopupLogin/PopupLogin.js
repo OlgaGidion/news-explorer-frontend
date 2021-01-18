@@ -1,15 +1,20 @@
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import FormInput from '../FormInput/FormInput';
+import MainApi from '../../utils/MainApi';
 
 const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [isInProgress, setIsInProgress] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     if (isOpen) {
       setEmail('');
       setPassword('');
+      setIsInProgress(false);
+      setError(null);
     }
   }, [isOpen]);
 
@@ -23,6 +28,20 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
     setPassword(text);
   };
 
+  const handleSubmit = () => {
+    setIsInProgress(true);
+    setError(null);
+
+    MainApi.login(email, password)
+      .then(({ token }) => {
+        onSuccess(token);
+      })
+      .catch((apiError) => {
+        setIsInProgress(false);
+        setError(apiError.message);
+      });
+  };
+
   return (
     <PopupWithForm
       name="login"
@@ -30,12 +49,13 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
       actionText="Войти"
       secondaryButtonText="Зарегистрироваться"
       inProgressText="Вход..."
+      isInProgress={isInProgress}
       isOpen={isOpen}
       isButtonDisabled={isButtonDisabled}
-      error={null}
+      error={error}
       onClose={onClose}
       onSecondaryButtonClick={onRegister}
-      onSubmit={onSuccess}>
+      onSubmit={handleSubmit}>
 
       <fieldset className="popup-with-form__fieldset">
 
