@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 import logoutImageDark from '../../images/logout-dark.svg';
 import './SavedNewsPage.css';
 
-const SavedNewsPage = () => {
+const SavedNewsPage = ({ onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
 
@@ -23,6 +23,8 @@ const SavedNewsPage = () => {
   };
 
   const handleLogoutButtonClick = () => {
+    history.replace('/');
+    onLogout();
   };
 
   return (

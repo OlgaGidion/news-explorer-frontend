@@ -14,6 +14,11 @@ const App = () => {
     MainApi.setToken(token);
   };
 
+  const handleLogout = () => {
+    setCurrentUser(null);
+    MainApi.setToken(null);
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter>
@@ -21,11 +26,11 @@ const App = () => {
           <Switch>
 
             <Route path="/saved-news" >
-              <SavedNewsPage />
+              <SavedNewsPage onLogout={handleLogout} />
             </Route>
 
             <Route exact path="/" >
-              <MainPage onLogin={handleLogin} />
+              <MainPage onLogin={handleLogin} onLogout={handleLogout} />
             </Route>
 
           </Switch>

@@ -16,7 +16,7 @@ import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = ({ onLogin }) => {
+const MainPage = ({ onLogin, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
@@ -41,6 +41,7 @@ const MainPage = ({ onLogin }) => {
   };
 
   const handleLogoutButtonClick = () => {
+    onLogout();
   };
 
   const handleLoginPopupClose = () => {
