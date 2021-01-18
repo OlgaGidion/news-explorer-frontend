@@ -47,11 +47,11 @@ const App = () => {
               <MainPage onLogin={handleLogin} onLogout={handleLogout} />
             </Route>
 
-            {currentUser &&
-              <Route exact path="/saved-news" >
+            <Route exact path="/saved-news" >
+              {currentUser &&
                 <SavedNewsPage onLogout={handleLogout} />
-              </Route>
-            }
+              }
+            </Route>
 
             <Route path="/" >
               <Redirect to="/" />
