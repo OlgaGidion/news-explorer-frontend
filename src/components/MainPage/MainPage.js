@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
@@ -17,6 +18,7 @@ import './MainPage.css';
 
 const MainPage = ({ onLogin }) => {
   const currentUser = React.useContext(CurrentUserContext);
+  const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
   const [isSearching, setIsSearching] = React.useState(false);
   const [foundArticles, setFoundArticles] = React.useState(null);
@@ -25,6 +27,14 @@ const MainPage = ({ onLogin }) => {
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
+
+  const handleSavedNewsPageButtonClick = () => {
+    history.push('/saved-news');
+  };
+
+  const handleMainPageButtonClick = () => {
+    history.push('/');
+  };
 
   const handleLoginButtonClick = () => {
     setIsLoginPopupOpened(true);
@@ -120,10 +130,10 @@ const MainPage = ({ onLogin }) => {
       <div className="main-page__image-container">
         <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened}>
           <Navigation isDark={false}>
-            <a className="navigation__link navigation__link_color_light navigation__link_selected_light" href="/">Главная</a>
+            <button className="navigation__page-button navigation__page-button_color_light navigation__page-button_selected_light" onClick={handleMainPageButtonClick}>Главная</button>
             {currentUser &&
               <>
-                <a className="navigation__link navigation__link_color_light" href="/saved-news">Сохранённые статьи</a>
+                <button className="navigation__page-button navigation__page-button_color_light" onClick={handleSavedNewsPageButtonClick}>Сохранённые статьи</button>
                 <ButtonWired type="light" text={currentUser.name} image={logoutImageLight} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
               </>
             }

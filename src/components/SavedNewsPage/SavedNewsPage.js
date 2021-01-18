@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
@@ -11,6 +12,15 @@ import './SavedNewsPage.css';
 
 const SavedNewsPage = () => {
   const currentUser = React.useContext(CurrentUserContext);
+  const history = useHistory();
+
+  const handleSavedNewsPageButtonClick = () => {
+    history.push('/saved-news');
+  };
+
+  const handleMainPageButtonClick = () => {
+    history.push('/');
+  };
 
   const handleLogoutButtonClick = () => {
   };
@@ -19,8 +29,8 @@ const SavedNewsPage = () => {
     <main>
       <Header isDark={true} isVisibleOnMobile={true}>
         <Navigation isDark={true}>
-          <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
-          <a className="navigation__link navigation__link_color_dark navigation__link_selected_dark" href="/saved-news">Сохранённые статьи</a>
+          <button className="navigation__page-button navigation__page-button_color_dark" onClick={handleMainPageButtonClick}>Главная</button>
+          <button className="navigation__page-button navigation__page-button_color_dark navigation__page-button_selected_dark" onClick={handleSavedNewsPageButtonClick}>Сохранённые статьи</button>
           <ButtonWired type="dark" text={currentUser.name} image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
         </Navigation>
       </Header>
