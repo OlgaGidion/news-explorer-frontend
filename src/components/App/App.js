@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import MainPage from '../MainPage/MainPage';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
@@ -43,14 +43,18 @@ const App = () => {
         <div className="app">
           <Switch>
 
+            <Route exact path="/" >
+              <MainPage onLogin={handleLogin} onLogout={handleLogout} />
+            </Route>
+
             {currentUser &&
-              <Route path="/saved-news" >
+              <Route exact path="/saved-news" >
                 <SavedNewsPage onLogout={handleLogout} />
               </Route>
             }
 
-            <Route exact path="/" >
-              <MainPage onLogin={handleLogin} onLogout={handleLogout} />
+            <Route path="/" >
+              <Redirect to="/" />
             </Route>
 
           </Switch>
