@@ -1,22 +1,40 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import MainPage from '../MainPage/MainPage';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
 import MainApi from '../../utils/MainApi';
 import './App.css';
 
 const App = () => {
   const [currentUser, setCurrentUser] = React.useState(null);
 
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      MainApi.setToken(token);
+      MainApi.getMyUser()
+        .then(({ name }) => {
+          setCurrentUser({ name });
+        })
+        .catch(() => {
+          setCurrentUser(null);
+          MainApi.setToken(null);
+          localStorage.removeItem('token');
+        });
+    }
+  }, []);
+
   const handleLogin = (token, name) => {
     setCurrentUser({ name });
     MainApi.setToken(token);
+    localStorage.setItem('token', token);
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
     MainApi.setToken(null);
+    localStorage.removeItem('token');
   };
 
   return (

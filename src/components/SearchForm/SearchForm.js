@@ -3,7 +3,7 @@ import ButtonSolid from '../ButtonSolid/ButtonSolid';
 import './SearchForm.css';
 
 const SearchForm = ({ placeholder, buttonText, onSearch }) => {
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('tesla');
 
   const search = () => {
     onSearch(text);
