@@ -43,9 +43,11 @@ const App = () => {
         <div className="app">
           <Switch>
 
-            <Route path="/saved-news" >
-              <SavedNewsPage onLogout={handleLogout} />
-            </Route>
+            {currentUser &&
+              <Route path="/saved-news" >
+                <SavedNewsPage onLogout={handleLogout} />
+              </Route>
+            }
 
             <Route exact path="/" >
               <MainPage onLogin={handleLogin} onLogout={handleLogout} />
