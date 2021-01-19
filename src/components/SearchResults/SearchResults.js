@@ -5,7 +5,7 @@ import SearchNotFound from '../SearchNotFound/SearchNotFound';
 import SearchPreloader from '../SearchPreloader/SearchPreloader';
 import './SearchResults.css';
 
-const SearchResults = ({ isSearching, keyword, articles, totalArticles, onShowMore }) => (
+const SearchResults = ({ isSearching, keyword, articles, totalArticles, onShowMore, onArticleSave }) => (
   <section className="search-results">
     {articles.length === 0 && !isSearching &&
       <SearchNotFound />
@@ -25,6 +25,7 @@ const SearchResults = ({ isSearching, keyword, articles, totalArticles, onShowMo
                   date={publishedAt}
                   url={url}
                   imageUrl={urlToImage}
+                  onSave={onArticleSave}
                 />
             </li>
           ))}

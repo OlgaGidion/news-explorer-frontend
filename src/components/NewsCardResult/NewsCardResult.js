@@ -3,11 +3,11 @@ import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import MainApi from '../../utils/MainApi';
 import bookmarkImage from '../../images/bookmark.svg';
 
-const NewsCardResult = ({ title, description, source, date, category, url, imageUrl }) => {
+const NewsCardResult = ({ title, description, source, date, category, url, imageUrl, onSave }) => {
   const handleSaveButtonClick = () => {
     MainApi.saveArticle(category, title, description, date, source, url, imageUrl)
-      .then(() => {
-        // TODO
+      .then((article) => {
+        onSave(article);
       })
       .catch((error) => {
         console.log(error);

@@ -8,6 +8,7 @@ import './App.css';
 
 const App = () => {
   const [currentUser, setCurrentUser] = React.useState(null);
+  const [savedArticles, setSavedArticles] = React.useState(null);
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,6 +26,20 @@ const App = () => {
     }
   }, []);
 
+  React.useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
+
+    MainApi.getMyArticles()
+      .then((result) => {
+        setSavedArticles(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [currentUser]);
+
   const handleLogin = (token, name) => {
     setCurrentUser({ name });
     MainApi.setToken(token);
@@ -37,6 +52,14 @@ const App = () => {
     localStorage.removeItem('token');
   };
 
+  const handleArticleSave = (article) => {
+    setSavedArticles([...savedArticles, article]);
+  };
+
+  const handleArticleUnsave = (articleId) => {
+    setSavedArticles(savedArticles.filter((article) => articleId !== article._id));
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter>
@@ -44,12 +67,18 @@ const App = () => {
           <Switch>
 
             <Route exact path="/" >
-              <MainPage onLogin={handleLogin} onLogout={handleLogout} />
+              <MainPage
+                onLogin={handleLogin}
+                onLogout={handleLogout}
+                onArticleSave={handleArticleSave} />
             </Route>
 
             <Route exact path="/saved-news" >
               {currentUser &&
-                <SavedNewsPage onLogout={handleLogout} />
+                <SavedNewsPage
+                  articles={savedArticles}
+                  onArticleUnsave={handleArticleUnsave}
+                  onLogout={handleLogout} />
               }
             </Route>
 

@@ -8,23 +8,11 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Footer from '../Footer/Footer';
 import logoutImageDark from '../../images/logout-dark.svg';
-import MainApi from '../../utils/MainApi';
 import './SavedNewsPage.css';
 
-const SavedNewsPage = ({ onLogout }) => {
+const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
-  const [articles, setArticles] = React.useState(null);
-
-  React.useEffect(() => {
-    MainApi.getMyArticles()
-      .then((result) => {
-        setArticles(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   const handleSavedNewsPageButtonClick = () => {
     history.push('/saved-news');
@@ -37,10 +25,6 @@ const SavedNewsPage = ({ onLogout }) => {
   const handleLogoutButtonClick = () => {
     history.replace('/');
     onLogout();
-  };
-
-  const handleArticleUnsave = (articleId) => {
-    setArticles(articles.filter((article) => articleId !== article._id));
   };
 
   return (
@@ -59,7 +43,7 @@ const SavedNewsPage = ({ onLogout }) => {
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
 
       {articles !== null &&
-        <NewsCardList articles={articles} onArticleUnsave={handleArticleUnsave} />
+        <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
       }
 
       <Footer />

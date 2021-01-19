@@ -16,7 +16,7 @@ import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = ({ onLogin, onLogout }) => {
+const MainPage = ({ onArticleSave, onLogin, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
@@ -155,7 +155,8 @@ const MainPage = ({ onLogin, onLogout }) => {
           keyword={searchText}
           articles={foundArticles}
           totalArticles={totalArticles}
-          onShowMore={handleShowMore} />
+          onShowMore={handleShowMore}
+          onArticleSave={onArticleSave} />
       }
       <AboutAuthor />
       <Footer />
