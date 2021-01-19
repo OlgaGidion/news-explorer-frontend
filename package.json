@@ -32,7 +32,8 @@
       "max-len": "off",
       "operator-linebreak": "off",
       "object-curly-newline": "off",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "no-underscore-dangle": ["error", { "allow": ["_id"] }]
     }
   },
   "browserslist": {

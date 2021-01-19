@@ -5,7 +5,13 @@ import bookmarkImage from '../../images/bookmark.svg';
 
 const NewsCardResult = ({ title, description, source, date, category, url, imageUrl }) => {
   const handleSaveButtonClick = () => {
-    MainApi.saveArticle(category, title, description, date, source, url, imageUrl);
+    MainApi.saveArticle(category, title, description, date, source, url, imageUrl)
+      .then(() => {
+        // TODO
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

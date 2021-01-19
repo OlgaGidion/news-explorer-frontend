@@ -39,6 +39,10 @@ const SavedNewsPage = ({ onLogout }) => {
     onLogout();
   };
 
+  const handleArticleUnsave = (articleId) => {
+    setArticles(articles.filter((article) => articleId !== article._id));
+  };
+
   return (
     <main>
       <Header isDark={true} isVisibleOnMobile={true}>
@@ -55,7 +59,7 @@ const SavedNewsPage = ({ onLogout }) => {
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
 
       {articles !== null &&
-        <NewsCardList articles={articles} />
+        <NewsCardList articles={articles} onArticleUnsave={handleArticleUnsave} />
       }
 
       <Footer />

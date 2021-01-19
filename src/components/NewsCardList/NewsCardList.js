@@ -1,12 +1,13 @@
 import NewsCardSaved from '../NewsCardSaved/NewsCardSaved';
 import './NewsCardList.css';
 
-const NewsCardList = ({ articles }) => (
+const NewsCardList = ({ articles, onArticleUnsave }) => (
   <section className="news-cards">
     <ul className="news-cards__list">
-      {articles.map(({ title, description, link, image, date, source, keyword }) => (
-        <li key={link} className="news-cards__item">
+      {articles.map(({ _id, title, description, link, image, date, source, keyword }) => (
+        <li key={_id} className="news-cards__item">
           <NewsCardSaved
+              id={_id}
               title={title}
               description={description}
               category={keyword}
@@ -14,6 +15,7 @@ const NewsCardList = ({ articles }) => (
               date={date}
               link={link}
               imageUrl={image}
+              onUnsave={onArticleUnsave}
             />
         </li>
       ))}
