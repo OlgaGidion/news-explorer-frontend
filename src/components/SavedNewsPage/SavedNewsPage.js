@@ -8,11 +8,23 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Footer from '../Footer/Footer';
 import logoutImageDark from '../../images/logout-dark.svg';
+import MainApi from '../../utils/MainApi';
 import './SavedNewsPage.css';
 
 const SavedNewsPage = ({ onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
+  const [articles, setArticles] = React.useState(null);
+
+  React.useEffect(() => {
+    MainApi.getMyArticles()
+      .then((result) => {
+        setArticles(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleSavedNewsPageButtonClick = () => {
     history.push('/saved-news');
@@ -42,7 +54,9 @@ const SavedNewsPage = ({ onLogout }) => {
         articlesCount={5}
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
 
-      <NewsCardList />
+      {articles !== null &&
+        <NewsCardList articles={articles} />
+      }
 
       <Footer />
     </main>
