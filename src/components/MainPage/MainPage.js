@@ -150,7 +150,12 @@ const MainPage = ({ onLogin, onLogout }) => {
         </div>
       </div>
       {foundArticles !== null &&
-        <SearchResults isSearching={isSearching} articles={foundArticles} totalArticles={totalArticles} onShowMore={handleShowMore} />
+        <SearchResults
+          isSearching={isSearching}
+          keyword={searchText}
+          articles={foundArticles}
+          totalArticles={totalArticles}
+          onShowMore={handleShowMore} />
       }
       <AboutAuthor />
       <Footer />

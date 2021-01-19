@@ -3,10 +3,10 @@ import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import deleteImage from '../../images/delete.svg';
 import './NewsCardSaved.css';
 
-const NewsCardSaved = ({ headline, text, source, date, category, imageUrl }) => (
+const NewsCardSaved = ({ title, description, source, date, category, imageUrl }) => (
   <NewsCard
-    headline={headline}
-    text={text}
+    title={title}
+    description={description}
     source={source}
     date={date}
     category={category}
