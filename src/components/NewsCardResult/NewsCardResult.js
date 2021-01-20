@@ -2,8 +2,9 @@ import NewsCard from '../NewsCard/NewsCard';
 import ButtonIcon from '../ButtonIcon/ButtonIcon';
 import MainApi from '../../utils/MainApi';
 import bookmarkImage from '../../images/bookmark.svg';
+import bookmarkFilledImage from '../../images/bookmark-filled.svg';
 
-const NewsCardResult = ({ title, description, source, date, category, url, imageUrl, onSave }) => {
+const NewsCardResult = ({ title, description, source, date, category, url, imageUrl, isSaved, onSave }) => {
   const handleSaveButtonClick = () => {
     MainApi.saveArticle(category, title, description, date, source, url, imageUrl)
       .then((article) => {
@@ -24,7 +25,7 @@ const NewsCardResult = ({ title, description, source, date, category, url, image
       imageUrl={imageUrl}>
       <ButtonIcon
         classMix="news-card__overlay-button"
-        image={bookmarkImage}
+        image={isSaved ? bookmarkFilledImage : bookmarkImage}
         actionText="Сохранить"
         hintText="Войдите, чтобы сохранять статьи"
         onClick={handleSaveButtonClick} />

@@ -27,6 +27,7 @@ const SearchResults = ({ isSearching, keyword, articles, totalArticles, onShowMo
                   date={publishedAt}
                   url={url}
                   imageUrl={urlToImage}
+                  isSaved={false}
                   onSave={onArticleSave}
                 />
             </li>
