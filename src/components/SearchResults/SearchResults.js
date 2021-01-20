@@ -8,7 +8,9 @@ import './SearchResults.css';
 const SearchResults = ({ isSearching, keyword, articles, totalArticles, onShowMore, onArticleSave }) => (
   <section className="search-results">
     {articles.length === 0 && !isSearching &&
-      <SearchNotFound />
+      <SearchNotFound
+        title="Ничего не найдено"
+        text="К сожалению по вашему запросу ничего не найдено." />
     }
 
     {articles.length > 0 &&
