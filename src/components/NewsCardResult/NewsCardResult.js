@@ -52,6 +52,7 @@ const NewsCardResult = ({ id, title, description, source, date, category, url, i
           image={bookmarkFilledImage}
           actionText="Удалить"
           hintText="Удалить"
+          isOpaque={true}
           onClick={handleUnsaveButtonClick} />
       );
     }

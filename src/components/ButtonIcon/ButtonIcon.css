@@ -21,6 +21,10 @@
   opacity: 1;
 }
 
+.button-icon__image_opaque {
+  opacity: 1;
+}
+
 .button-icon__hint {
   padding: 0 10px;
   display: flex;
