@@ -7,7 +7,7 @@ import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
-import { getKeywords } from '../../utils/keywordUtils';
+import { groupKeywords } from '../../utils/keywordUtils';
 import logoutImageDark from '../../images/logout-dark.svg';
 import './SavedNewsPage.css';
 
@@ -41,7 +41,7 @@ const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
       <SavedNewsHeader
         userName={currentUser.name}
         articlesCount={articles.length}
-        keywords={getKeywords(articles)} />
+        keywords={groupKeywords(articles.map((article) => article.keyword))} />
 
       {articles.length > 0 &&
         <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />

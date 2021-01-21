@@ -5,10 +5,10 @@ export const formatKeyword = (keyword) => (
     .join(' ')
 );
 
-export const getKeywords = (articles) => {
+export const groupKeywords = (keywords) => {
   const counts = {};
 
-  articles.forEach(({ keyword }) => {
+  keywords.forEach((keyword) => {
     const formattedKeyword = formatKeyword(keyword);
 
     if (counts[formattedKeyword]) {
