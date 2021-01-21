@@ -1,3 +1,4 @@
+import { formatKeyword } from '../../utils/keywordUtils';
 import './NewsCard.css';
 
 const NewsCard = ({ title, description, source, date, category, imageUrl, isKeywordShown, children }) => {
@@ -18,7 +19,7 @@ const NewsCard = ({ title, description, source, date, category, imageUrl, isKeyw
         <div className="news-card__overlay">
           <div className={classList}>
             {isKeywordShown &&
-              <p className="news-card__category-text">{category}</p>
+              <p className="news-card__category-text">{formatKeyword(category)}</p>
             }
           </div>
           {children}
