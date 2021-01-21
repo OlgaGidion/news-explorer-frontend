@@ -10,11 +10,14 @@ const NewsCardResult = ({ id, title, description, source, date, category, url, i
   const currentUser = React.useContext(CurrentUserContext);
 
   const createButton = React.useCallback(() => {
-    const handleLoginButtonClick = () => {
+    const handleLoginButtonClick = (e) => {
+      e.stopPropagation();
       onLogin();
     };
 
-    const handleSaveButtonClick = () => {
+    const handleSaveButtonClick = (e) => {
+      e.stopPropagation();
+
       MainApi.saveArticle(category, title, description, date, source, url, imageUrl)
         .then((article) => {
           onSave(article);
@@ -24,7 +27,9 @@ const NewsCardResult = ({ id, title, description, source, date, category, url, i
         });
     };
 
-    const handleUnsaveButtonClick = () => {
+    const handleUnsaveButtonClick = (e) => {
+      e.stopPropagation();
+
       MainApi.unsaveArticle(id)
         .then(() => {
           onUnsave(id);
@@ -63,7 +68,7 @@ const NewsCardResult = ({ id, title, description, source, date, category, url, i
       actionText="Сохранить"
       hintText="Сохранить"
       onClick={handleSaveButtonClick} />;
-  }, [currentUser, id, title, description, source, date, category, url, imageUrl, isSaved, onSave, onUnsave]);
+  }, [currentUser, id, title, description, source, date, category, url, imageUrl, isSaved, onLogin, onSave, onUnsave]);
 
   return (
     <NewsCard
@@ -72,6 +77,7 @@ const NewsCardResult = ({ id, title, description, source, date, category, url, i
       source={source}
       date={date}
       category={category}
+      url={url}
       imageUrl={imageUrl}
       isKeywordShown={false}>
       {createButton()}

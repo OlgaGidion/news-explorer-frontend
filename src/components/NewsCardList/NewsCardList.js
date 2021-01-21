@@ -20,7 +20,7 @@ const NewsCardList = ({ articles, onArticleUnsave }) => (
                 category={keyword}
                 source={source}
                 date={date}
-                link={link}
+                url={link}
                 imageUrl={image}
                 onUnsave={onArticleUnsave}
               />

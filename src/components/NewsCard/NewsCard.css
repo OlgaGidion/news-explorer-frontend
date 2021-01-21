@@ -5,6 +5,7 @@
   overflow: hidden;
   background: white;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .news-card__image-container {

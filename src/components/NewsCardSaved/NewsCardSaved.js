@@ -4,8 +4,10 @@ import deleteImage from '../../images/delete.svg';
 import MainApi from '../../utils/MainApi';
 import './NewsCardSaved.css';
 
-const NewsCardSaved = ({ id, title, description, source, date, category, imageUrl, onUnsave }) => {
-  const handleDeleteButtonClick = () => {
+const NewsCardSaved = ({ id, title, description, source, date, category, url, imageUrl, onUnsave }) => {
+  const handleDeleteButtonClick = (e) => {
+    e.stopPropagation();
+
     MainApi.unsaveArticle(id)
       .then(() => {
         onUnsave(id);
@@ -22,6 +24,7 @@ const NewsCardSaved = ({ id, title, description, source, date, category, imageUr
       source={source}
       date={date}
       category={category}
+      url={url}
       imageUrl={imageUrl}
       isKeywordShown={true}>
       <ButtonIcon

@@ -1,7 +1,7 @@
 import { formatKeyword } from '../../utils/keywordUtils';
 import './NewsCard.css';
 
-const NewsCard = ({ title, description, source, date, category, imageUrl, isKeywordShown, children }) => {
+const NewsCard = ({ title, description, source, date, category, url, imageUrl, isKeywordShown, children }) => {
   const classList = category
     ? 'news-card__category'
     : 'news-card__category news-card__category_hidden';
@@ -12,8 +12,12 @@ const NewsCard = ({ title, description, source, date, category, imageUrl, isKeyw
     day: 'numeric',
   });
 
+  const handleClick = () => {
+    window.open(url);
+  };
+
   return (
-    <div className="news-card">
+    <div className="news-card" onClick={handleClick}>
       <div className="news-card__image-container">
         <img className="news-card__image" src={imageUrl} alt={title} />
         <div className="news-card__overlay">
