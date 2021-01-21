@@ -2,13 +2,32 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
-import Footer from '../Footer/Footer';
 import logoutImageDark from '../../images/logout-dark.svg';
 import './SavedNewsPage.css';
+
+const formatKeyword = (keyword) => keyword.slice(0, 1).toUpperCase() + keyword.slice(1).toLowerCase();
+
+const getKeywords = (articles) => {
+  const counts = {};
+
+  articles.forEach(({ keyword }) => {
+    const formattedKeyword = formatKeyword(keyword);
+
+    if (counts[formattedKeyword]) {
+      counts[formattedKeyword] += 1;
+      return;
+    }
+
+    counts[formattedKeyword] = 0;
+  });
+
+  return Object.keys(counts);
+};
 
 const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
@@ -39,8 +58,8 @@ const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
 
       <SavedNewsHeader
         userName={currentUser.name}
-        articlesCount={5}
-        keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
+        articlesCount={articles.length}
+        keywords={getKeywords(articles)} />
 
       {articles.length > 0 &&
         <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
