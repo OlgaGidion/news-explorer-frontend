@@ -16,7 +16,7 @@ import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = ({ onArticleSave, onLogin, onLogout }) => {
+const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
@@ -149,15 +149,19 @@ const MainPage = ({ onArticleSave, onLogin, onLogout }) => {
           <SearchForm placeholder="Введите тему новости" buttonText="Искать" onSearch={handleSearch} />
         </div>
       </div>
+
       {foundArticles !== null &&
         <SearchResults
           isSearching={isSearching}
           keyword={searchText}
           articles={foundArticles}
           totalArticles={totalArticles}
+          savedArticles={savedArticles}
           onShowMore={handleShowMore}
-          onArticleSave={onArticleSave} />
+          onArticleSave={onArticleSave}
+          onArticleUnsave={onArticleUnsave} />
       }
+
       <AboutAuthor />
       <Footer />
 

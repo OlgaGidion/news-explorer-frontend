@@ -1,6 +1,6 @@
 import './NewsCard.css';
 
-const NewsCard = ({ title, description, source, date, category, imageUrl, children }) => {
+const NewsCard = ({ title, description, source, date, category, imageUrl, isKeywordShown, children }) => {
   const classList = category
     ? 'news-card__category'
     : 'news-card__category news-card__category_hidden';
@@ -17,7 +17,9 @@ const NewsCard = ({ title, description, source, date, category, imageUrl, childr
         <img className="news-card__image" src={imageUrl} alt={title} />
         <div className="news-card__overlay">
           <div className={classList}>
-            <p className="news-card__category-text">{category}</p>
+            {isKeywordShown &&
+              <p className="news-card__category-text">{category}</p>
+            }
           </div>
           {children}
         </div>

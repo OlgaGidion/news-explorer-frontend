@@ -42,7 +42,7 @@ const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
         articlesCount={5}
         keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
 
-      {articles !== null &&
+      {articles.length > 0 &&
         <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
       }
 

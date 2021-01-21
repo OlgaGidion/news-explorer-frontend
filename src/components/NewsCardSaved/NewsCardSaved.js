@@ -22,7 +22,8 @@ const NewsCardSaved = ({ id, title, description, source, date, category, imageUr
       source={source}
       date={date}
       category={category}
-      imageUrl={imageUrl}>
+      imageUrl={imageUrl}
+      isKeywordShown={true}>
       <ButtonIcon
         classMix="news-card__overlay-button"
         image={deleteImage}

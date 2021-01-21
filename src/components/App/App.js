@@ -8,7 +8,7 @@ import './App.css';
 
 const App = () => {
   const [currentUser, setCurrentUser] = React.useState(null);
-  const [savedArticles, setSavedArticles] = React.useState(null);
+  const [savedArticles, setSavedArticles] = React.useState([]);
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -68,9 +68,11 @@ const App = () => {
 
             <Route exact path="/" >
               <MainPage
+                savedArticles={savedArticles}
                 onLogin={handleLogin}
                 onLogout={handleLogout}
-                onArticleSave={handleArticleSave} />
+                onArticleSave={handleArticleSave}
+                onArticleUnsave={handleArticleUnsave} />
             </Route>
 
             <Route exact path="/saved-news" >
