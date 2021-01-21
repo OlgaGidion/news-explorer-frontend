@@ -16,7 +16,7 @@ import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLogout }) => {
+const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSuccess, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
@@ -36,7 +36,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLo
     history.push('/');
   };
 
-  const handleLoginButtonClick = () => {
+  const handleLogin = () => {
     setIsLoginPopupOpened(true);
   };
 
@@ -55,7 +55,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLo
 
   const handleLoginPopupSuccess = (token, name) => {
     setIsLoginPopupOpened(false);
-    onLogin(token, name);
+    onLoginSuccess(token, name);
   };
 
   const handleRegisterPopupClose = () => {
@@ -139,7 +139,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLo
               </>
             }
             {!currentUser &&
-              <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLoginButtonClick} />
+              <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLogin} />
             }
           </Navigation>
         </Header>
@@ -159,7 +159,8 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLogin, onLo
           savedArticles={savedArticles}
           onShowMore={handleShowMore}
           onArticleSave={onArticleSave}
-          onArticleUnsave={onArticleUnsave} />
+          onArticleUnsave={onArticleUnsave}
+          onLogin={handleLogin} />
       }
 
       <AboutAuthor />

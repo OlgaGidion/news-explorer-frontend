@@ -5,7 +5,7 @@ import SearchNotFound from '../SearchNotFound/SearchNotFound';
 import SearchPreloader from '../SearchPreloader/SearchPreloader';
 import './SearchResults.css';
 
-const SearchResults = ({ isSearching, keyword, articles, totalArticles, savedArticles, onShowMore, onArticleSave, onArticleUnsave }) => (
+const SearchResults = ({ isSearching, keyword, articles, totalArticles, savedArticles, onShowMore, onArticleSave, onArticleUnsave, onLogin }) => (
   <section className="search-results">
     {articles.length === 0 && !isSearching &&
       <SearchNotFound
@@ -34,6 +34,7 @@ const SearchResults = ({ isSearching, keyword, articles, totalArticles, savedArt
                     isSaved={savedArticle !== undefined}
                     onSave={onArticleSave}
                     onUnsave={onArticleUnsave}
+                    onLogin={onLogin}
                   />
               </li>
             );

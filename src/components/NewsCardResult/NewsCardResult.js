@@ -6,12 +6,12 @@ import MainApi from '../../utils/MainApi';
 import bookmarkImage from '../../images/bookmark.svg';
 import bookmarkFilledImage from '../../images/bookmark-filled.svg';
 
-const NewsCardResult = ({ id, title, description, source, date, category, url, imageUrl, isSaved, onSave, onUnsave }) => {
+const NewsCardResult = ({ id, title, description, source, date, category, url, imageUrl, isSaved, onSave, onUnsave, onLogin }) => {
   const currentUser = React.useContext(CurrentUserContext);
 
   const createButton = React.useCallback(() => {
     const handleLoginButtonClick = () => {
-      console.log('SHOW LOGIN POPUP!!!');
+      onLogin();
     };
 
     const handleSaveButtonClick = () => {

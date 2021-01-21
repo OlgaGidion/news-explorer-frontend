@@ -40,7 +40,7 @@ const App = () => {
       });
   }, [currentUser]);
 
-  const handleLogin = (token, name) => {
+  const handleLoginSuccess = (token, name) => {
     setCurrentUser({ name });
     MainApi.setToken(token);
     localStorage.setItem('token', token);
@@ -69,7 +69,7 @@ const App = () => {
             <Route exact path="/" >
               <MainPage
                 savedArticles={savedArticles}
-                onLogin={handleLogin}
+                onLoginSuccess={handleLoginSuccess}
                 onLogout={handleLogout}
                 onArticleSave={handleArticleSave}
                 onArticleUnsave={handleArticleUnsave} />
