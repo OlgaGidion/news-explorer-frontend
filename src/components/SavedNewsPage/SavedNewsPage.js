@@ -43,9 +43,7 @@ const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
         articlesCount={articles.length}
         keywords={groupKeywords(articles.map((article) => article.keyword))} />
 
-      {articles.length > 0 &&
-        <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
-      }
+      <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
 
       <Footer />
     </main>

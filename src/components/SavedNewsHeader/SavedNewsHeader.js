@@ -24,7 +24,9 @@ const SavedNewsHeader = ({ userName, articlesCount, keywords }) => {
     <div className="saved-news-header">
         <h3 className="saved-news-header__text">Сохранённые статьи</h3>
         <h2 className="saved-news-header__headline">{headlineText}</h2>
-        <p className="saved-news-header__subline">По ключевым словам: {keywordElements}</p>
+        {keywordElements.length > 0 &&
+          <p className="saved-news-header__subline">По ключевым словам: {keywordElements}</p>
+        }
     </div>
   );
 };
