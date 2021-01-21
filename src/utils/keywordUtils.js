@@ -16,7 +16,7 @@ export const groupKeywords = (keywords) => {
       return;
     }
 
-    counts[formattedKeyword] = 0;
+    counts[formattedKeyword] = 1;
   });
 
   return Object.keys(counts);
