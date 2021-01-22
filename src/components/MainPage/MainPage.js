@@ -28,6 +28,48 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
 
+  React.useEffect(() => {
+    const savedSearchText = localStorage.getItem('searchText');
+    if (savedSearchText) {
+      setSearchText(savedSearchText);
+      setFoundArticles(JSON.parse(localStorage.getItem('foundArticles')));
+      setTotalArticles(localStorage.getItem('totalArticles'));
+      setCurrentPage(localStorage.getItem('currentPage'));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (searchText !== null) {
+      localStorage.setItem('searchText', searchText);
+    } else {
+      localStorage.removeItem('searchText');
+    }
+  }, [searchText]);
+
+  React.useEffect(() => {
+    if (foundArticles !== null && foundArticles.length > 0) {
+      localStorage.setItem('foundArticles', JSON.stringify(foundArticles));
+    } else {
+      localStorage.removeItem('foundArticles');
+    }
+  }, [foundArticles]);
+
+  React.useEffect(() => {
+    if (totalArticles > 0) {
+      localStorage.setItem('totalArticles', totalArticles);
+    } else {
+      localStorage.removeItem('totalArticles');
+    }
+  }, [totalArticles]);
+
+  React.useEffect(() => {
+    if (currentPage > 0) {
+      localStorage.setItem('currentPage', currentPage);
+    } else {
+      localStorage.removeItem('currentPage');
+    }
+  }, [currentPage]);
+
   const handleSavedNewsPageButtonClick = () => {
     history.push('/saved-news');
   };
@@ -84,6 +126,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
   const handleSearch = (text) => {
     if (text.length === 0) {
       setFoundArticles([]);
+      setCurrentPage(0);
       setTotalArticles(0);
       setSearchText(null);
       return;
@@ -91,8 +134,8 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
 
     setFoundArticles([]);
     setIsSearching(true);
-    setSearchText(text);
     setCurrentPage(1);
+    setSearchText(text);
 
     const today = getToday();
     const weekAgo = getWeekAgo();
@@ -146,7 +189,11 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
         <div className="main-page__content">
           <h1 className="main-page__headline">Что творится в мире?</h1>
           <p className="main-page__subline">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-          <SearchForm placeholder="Введите тему новости" buttonText="Искать" onSearch={handleSearch} />
+
+          <SearchForm
+            placeholder="Введите тему новости"
+            buttonText="Искать"
+            onSearch={handleSearch} />
         </div>
       </div>
 

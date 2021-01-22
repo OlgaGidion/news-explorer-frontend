@@ -3,10 +3,23 @@ import ButtonSolid from '../ButtonSolid/ButtonSolid';
 import './SearchForm.css';
 
 const SearchForm = ({ placeholder, buttonText, onSearch }) => {
-  const [text, setText] = React.useState('tesla');
+  const [text, setText] = React.useState('');
+
+  React.useEffect(() => {
+    const savedText = localStorage.getItem('searchFormText');
+    if (savedText) {
+      setText(savedText);
+    }
+  }, []);
 
   const search = () => {
     onSearch(text);
+
+    if (text.length > 0) {
+      localStorage.setItem('searchFormText', text);
+    } else {
+      localStorage.removeItem('searchFormText');
+    }
   };
 
   const handleInput = (e) => {
