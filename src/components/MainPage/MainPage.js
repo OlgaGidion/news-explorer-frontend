@@ -145,6 +145,9 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
         setFoundArticles(result.articles);
         setTotalArticles(result.totalResults);
       })
+      .catch((error) => {
+        console.log(error);
+      })
       .finally(() => {
         setIsSearching(false);
       });
@@ -163,6 +166,9 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
       .then((result) => {
         setFoundArticles([...foundArticles, ...result.articles]);
         setTotalArticles(result.totalResults);
+      })
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => {
         setIsSearching(false);
