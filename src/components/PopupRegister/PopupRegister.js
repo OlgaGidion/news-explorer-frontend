@@ -8,6 +8,9 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
   const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
   const [isInProgress, setIsInProgress] = React.useState(false);
+  const [inputEmailError, setInputEmailError] = React.useState(null);
+  const [inputPasswordError, setInputPasswordError] = React.useState(null);
+  const [inputNameError, setInputNameError] = React.useState(null);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
@@ -20,18 +23,28 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
     }
   }, [isOpen]);
 
-  const isButtonDisabled = email === '' || password === '' || name === '';
-
   const handleEmailTextChange = (text) => {
     setEmail(text);
+  };
+
+  const handleEmailErrorChange = (text) => {
+    setInputEmailError(text);
   };
 
   const handlePasswordTextChange = (text) => {
     setPassword(text);
   };
 
+  const handlePasswordErrorChange = (text) => {
+    setInputPasswordError(text);
+  };
+
   const handleNameTextChange = (text) => {
     setName(text);
+  };
+
+  const handleNameErrorChange = (text) => {
+    setInputNameError(text);
   };
 
   const handleSubmit = () => {
@@ -47,6 +60,13 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
         setError(apiError.message);
       });
   };
+
+  const isButtonDisabled = email === ''
+    || password === ''
+    || name === ''
+    || inputEmailError !== null
+    || inputPasswordError !== null
+    || inputNameError !== null;
 
   return (
     <PopupWithForm
@@ -74,7 +94,8 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
           placeholder="Введите почту"
           minLength="5"
           maxLength="50"
-          onTextChange={handleEmailTextChange} />
+          onTextChange={handleEmailTextChange}
+          onErrorChange={handleEmailErrorChange} />
 
         <FormInput
           required
@@ -85,7 +106,8 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
           placeholder="Введите пароль"
           minLength="5"
           maxLength="100"
-          onTextChange={handlePasswordTextChange} />
+          onTextChange={handlePasswordTextChange}
+          onErrorChange={handlePasswordErrorChange} />
 
         <FormInput
           required
@@ -96,7 +118,8 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
           placeholder="Введите свое имя"
           minLength="2"
           maxLength="30"
-          onTextChange={handleNameTextChange} />
+          onTextChange={handleNameTextChange}
+          onErrorChange={handleNameErrorChange} />
 
       </fieldset>
     </PopupWithForm>

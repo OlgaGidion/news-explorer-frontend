@@ -4,12 +4,11 @@ import FormInput from '../FormInput/FormInput';
 import MainApi from '../../utils/MainApi';
 
 const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
-  const fieldsetRef = React.useRef(null);
-  const inputRefs = React.useRef([]);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [isInProgress, setIsInProgress] = React.useState(false);
-  const [hasInputErrors, setHasInputErrors] = React.useState(false);
+  const [inputEmailError, setInputEmailError] = React.useState(null);
+  const [inputPasswordError, setInputPasswordError] = React.useState(null);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
@@ -21,20 +20,20 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
     }
   }, [isOpen]);
 
-  React.useEffect(() => {
-    inputRefs.current = [...fieldsetRef.current.querySelectorAll('input')];
-  }, []);
-
-  React.useEffect(() => {
-    setHasInputErrors(inputRefs.current.some((input) => !input.validity.valid));
-  }, [email, password]);
-
   const handleEmailTextChange = (text) => {
     setEmail(text);
   };
 
+  const handleEmailErrorChange = (errorText) => {
+    setInputEmailError(errorText);
+  };
+
   const handlePasswordTextChange = (text) => {
     setPassword(text);
+  };
+
+  const handlePasswordErrorChange = (errorText) => {
+    setInputPasswordError(errorText);
   };
 
   const handleSubmit = () => {
@@ -51,6 +50,11 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
       });
   };
 
+  const isButtonDisabled = email === ''
+    || password === ''
+    || inputEmailError !== null
+    || inputPasswordError !== null;
+
   return (
     <PopupWithForm
       name="login"
@@ -60,13 +64,13 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
       inProgressText="Вход..."
       isInProgress={isInProgress}
       isOpen={isOpen}
-      isButtonDisabled={hasInputErrors}
+      isButtonDisabled={isButtonDisabled}
       error={error}
       onClose={onClose}
       onSecondaryButtonClick={onRegister}
       onSubmit={handleSubmit}>
 
-      <fieldset ref={fieldsetRef} className="popup-with-form__fieldset">
+      <fieldset className="popup-with-form__fieldset">
 
         <FormInput
           required
@@ -77,7 +81,9 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
           placeholder="Введите почту"
           minLength="5"
           maxLength="50"
-          onTextChange={handleEmailTextChange} />
+          error={inputEmailError}
+          onTextChange={handleEmailTextChange}
+          onErrorChange={handleEmailErrorChange} />
 
         <FormInput
           required
@@ -88,7 +94,9 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
           placeholder="Введите пароль"
           minLength="5"
           maxLength="100"
-          onTextChange={handlePasswordTextChange} />
+          error={inputPasswordError}
+          onTextChange={handlePasswordTextChange}
+          onErrorChange={handlePasswordErrorChange} />
 
       </fieldset>
     </PopupWithForm>
