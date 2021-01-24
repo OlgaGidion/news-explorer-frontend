@@ -11,11 +11,29 @@ import MainApi from '../../utils/MainApi';
 import './App.css';
 
 const App = () => {
-  const [currentUser, setCurrentUser] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState(localStorage.getItem('user'));
   const [savedArticles, setSavedArticles] = React.useState([]);
   const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
   const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
   const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
+
+  const login = (token, name) => {
+    const user = { name };
+
+    MainApi.setToken(token);
+    setCurrentUser(user);
+
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', token);
+  };
+
+  const logout = () => {
+    MainApi.setToken(null);
+    setCurrentUser(null);
+
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  };
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -23,12 +41,10 @@ const App = () => {
       MainApi.setToken(token);
       MainApi.getMyUser()
         .then(({ name }) => {
-          setCurrentUser({ name });
+          login(token, name);
         })
         .catch(() => {
-          setCurrentUser(null);
-          MainApi.setToken(null);
-          localStorage.removeItem('token');
+          logout();
         });
     }
   }, []);
@@ -52,9 +68,7 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    setCurrentUser(null);
-    MainApi.setToken(null);
-    localStorage.removeItem('token');
+    logout();
   };
 
   const handleArticleSave = (article) => {
@@ -77,9 +91,7 @@ const App = () => {
   const handleLoginPopupSuccess = (token, name) => {
     setIsLoginPopupOpened(false);
 
-    setCurrentUser({ name });
-    MainApi.setToken(token);
-    localStorage.setItem('token', token);
+    login(token, name);
   };
 
   const handleRegisterPopupClose = () => {
