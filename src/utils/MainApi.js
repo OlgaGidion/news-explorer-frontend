@@ -85,5 +85,5 @@ class MainApi {
 }
 
 export default new MainApi({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.munich.students.nomoreparties.xyz',
 });
