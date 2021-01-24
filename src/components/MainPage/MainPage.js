@@ -8,15 +8,12 @@ import SearchForm from '../SearchForm/SearchForm';
 import SearchResults from '../SearchResults/SearchResults';
 import AboutAuthor from '../AboutAuthor/AboutAuthor';
 import Footer from '../Footer/Footer';
-import PopupLogin from '../PopupLogin/PopupLogin';
-import PopupRegister from '../PopupRegister/PopupRegister';
-import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
 import api from '../../utils/NewsApi';
 import { getToday, getWeekAgo } from '../../utils/timeUtils';
 import logoutImageLight from '../../images/logout-light.svg';
 import './MainPage.css';
 
-const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSuccess, onLogout }) => {
+const MainPage = ({ savedArticles, isHeaderVisibleOnMobile, onArticleSave, onArticleUnsave, onLogin, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
@@ -24,9 +21,6 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
   const [foundArticles, setFoundArticles] = React.useState(null);
   const [totalArticles, setTotalArticles] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(0);
-  const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
-  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
-  const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
 
   React.useEffect(() => {
     const savedSearchText = localStorage.getItem('searchText');
@@ -78,49 +72,8 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
     history.push('/');
   };
 
-  const handleLogin = () => {
-    setIsLoginPopupOpened(true);
-  };
-
   const handleLogoutButtonClick = () => {
     onLogout();
-  };
-
-  const handleLoginPopupClose = () => {
-    setIsLoginPopupOpened(false);
-  };
-
-  const handleLoginPopupRegister = () => {
-    setIsLoginPopupOpened(false);
-    setIsRegisterPopupOpened(true);
-  };
-
-  const handleLoginPopupSuccess = (token, name) => {
-    setIsLoginPopupOpened(false);
-    onLoginSuccess(token, name);
-  };
-
-  const handleRegisterPopupClose = () => {
-    setIsRegisterPopupOpened(false);
-  };
-
-  const handleRegisterPopupLogin = () => {
-    setIsRegisterPopupOpened(false);
-    setIsLoginPopupOpened(true);
-  };
-
-  const handleRegisterPopupSuccess = () => {
-    setIsRegisterPopupOpened(false);
-    setIsRegisterSuccessPopupOpened(true);
-  };
-
-  const handleRegisterSuccessPopupClose = () => {
-    setIsRegisterSuccessPopupOpened(false);
-  };
-
-  const handleRegisterSuccessPopupLogin = () => {
-    setIsRegisterSuccessPopupOpened(false);
-    setIsLoginPopupOpened(true);
   };
 
   const handleSearch = (text) => {
@@ -178,7 +131,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
   return (
     <main className="main-page">
       <div className="main-page__image-container">
-        <Header isDark={false} isVisibleOnMobile={!isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened}>
+        <Header isDark={false} isVisibleOnMobile={isHeaderVisibleOnMobile}>
           <Navigation isDark={false}>
             <button className="navigation__page-button navigation__page-button_color_light navigation__page-button_selected_light" onClick={handleMainPageButtonClick}>Главная</button>
             {currentUser &&
@@ -188,7 +141,7 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
               </>
             }
             {!currentUser &&
-              <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={handleLogin} />
+              <ButtonWired type="light" text="Авторизоваться" classMix="navigation__wired-button" onClick={onLogin} />
             }
           </Navigation>
         </Header>
@@ -213,28 +166,11 @@ const MainPage = ({ savedArticles, onArticleSave, onArticleUnsave, onLoginSucces
           onShowMore={handleShowMore}
           onArticleSave={onArticleSave}
           onArticleUnsave={onArticleUnsave}
-          onLogin={handleLogin} />
+          onLogin={onLogin} />
       }
 
       <AboutAuthor />
       <Footer />
-
-      <PopupLogin
-        isOpen={isLoginPopupOpened}
-        onClose={handleLoginPopupClose}
-        onRegister={handleLoginPopupRegister}
-        onSuccess={handleLoginPopupSuccess} />
-
-      <PopupRegister
-        isOpen={isRegisterPopupOpened}
-        onClose={handleRegisterPopupClose}
-        onLogin={handleRegisterPopupLogin}
-        onSuccess={handleRegisterPopupSuccess} />
-
-      <PopupRegisterSuccess
-        isOpen={isRegisterSuccessPopupOpened}
-        onClose={handleRegisterSuccessPopupClose}
-        onLogin={handleRegisterSuccessPopupLogin} />
 
     </main>
   );

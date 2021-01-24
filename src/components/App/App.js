@@ -3,12 +3,18 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import MainPage from '../MainPage/MainPage';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
+import PopupLogin from '../PopupLogin/PopupLogin';
+import PopupRegister from '../PopupRegister/PopupRegister';
+import PopupRegisterSuccess from '../PopupRegisterSuccess/PopupRegisterSuccess';
 import MainApi from '../../utils/MainApi';
 import './App.css';
 
 const App = () => {
   const [currentUser, setCurrentUser] = React.useState(null);
   const [savedArticles, setSavedArticles] = React.useState([]);
+  const [isLoginPopupOpened, setIsLoginPopupOpened] = React.useState(false);
+  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = React.useState(false);
+  const [isRegisterSuccessPopupOpened, setIsRegisterSuccessPopupOpened] = React.useState(false);
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -40,12 +46,6 @@ const App = () => {
       });
   }, [currentUser]);
 
-  const handleLoginSuccess = (token, name) => {
-    setCurrentUser({ name });
-    MainApi.setToken(token);
-    localStorage.setItem('token', token);
-  };
-
   const handleLogout = () => {
     setCurrentUser(null);
     MainApi.setToken(null);
@@ -60,6 +60,52 @@ const App = () => {
     setSavedArticles(savedArticles.filter((article) => articleId !== article._id));
   };
 
+  const handleLogin = () => {
+    setIsLoginPopupOpened(true);
+  };
+
+  const handleLoginPopupClose = () => {
+    setIsLoginPopupOpened(false);
+  };
+
+  const handleLoginPopupRegister = () => {
+    setIsLoginPopupOpened(false);
+    setIsRegisterPopupOpened(true);
+  };
+
+  const handleLoginPopupSuccess = (token, name) => {
+    setIsLoginPopupOpened(false);
+
+    setCurrentUser({ name });
+    MainApi.setToken(token);
+    localStorage.setItem('token', token);
+  };
+
+  const handleRegisterPopupClose = () => {
+    setIsRegisterPopupOpened(false);
+  };
+
+  const handleRegisterPopupLogin = () => {
+    setIsRegisterPopupOpened(false);
+    setIsLoginPopupOpened(true);
+  };
+
+  const handleRegisterPopupSuccess = () => {
+    setIsRegisterPopupOpened(false);
+    setIsRegisterSuccessPopupOpened(true);
+  };
+
+  const handleRegisterSuccessPopupClose = () => {
+    setIsRegisterSuccessPopupOpened(false);
+  };
+
+  const handleRegisterSuccessPopupLogin = () => {
+    setIsRegisterSuccessPopupOpened(false);
+    setIsLoginPopupOpened(true);
+  };
+
+  const areAllPopupsClosed = !isLoginPopupOpened && !isRegisterPopupOpened && !isRegisterSuccessPopupOpened;
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <BrowserRouter>
@@ -69,7 +115,8 @@ const App = () => {
             <Route exact path="/" >
               <MainPage
                 savedArticles={savedArticles}
-                onLoginSuccess={handleLoginSuccess}
+                isHeaderVisibleOnMobile={areAllPopupsClosed}
+                onLogin={handleLogin}
                 onLogout={handleLogout}
                 onArticleSave={handleArticleSave}
                 onArticleUnsave={handleArticleUnsave} />
@@ -82,6 +129,9 @@ const App = () => {
                   onArticleUnsave={handleArticleUnsave}
                   onLogout={handleLogout} />
               }
+              {!currentUser &&
+                <Redirect to="/" />
+              }
             </Route>
 
             <Route path="/" >
@@ -89,6 +139,23 @@ const App = () => {
             </Route>
 
           </Switch>
+
+          <PopupLogin
+            isOpen={isLoginPopupOpened}
+            onClose={handleLoginPopupClose}
+            onRegister={handleLoginPopupRegister}
+            onSuccess={handleLoginPopupSuccess} />
+
+          <PopupRegister
+            isOpen={isRegisterPopupOpened}
+            onClose={handleRegisterPopupClose}
+            onLogin={handleRegisterPopupLogin}
+            onSuccess={handleRegisterPopupSuccess} />
+
+          <PopupRegisterSuccess
+            isOpen={isRegisterSuccessPopupOpened}
+            onClose={handleRegisterSuccessPopupClose}
+            onLogin={handleRegisterSuccessPopupLogin} />
         </div>
       </BrowserRouter>
     </CurrentUserContext.Provider>
