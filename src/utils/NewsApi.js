@@ -27,6 +27,6 @@ class NewsApi {
 }
 
 export default new NewsApi({
-  baseUrl: 'https://newsapi.org/v2',
+  baseUrl: 'https://nomoreparties.co/news/v2',
   key: 'd371bc6a22d7414f9fdb907355ca0801',
 });
