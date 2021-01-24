@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import MainPage from '../MainPage/MainPage';
 import SavedNewsPage from '../SavedNewsPage/SavedNewsPage';
 import PopupLogin from '../PopupLogin/PopupLogin';
@@ -46,6 +47,10 @@ const App = () => {
       });
   }, [currentUser]);
 
+  const handleLogin = () => {
+    setIsLoginPopupOpened(true);
+  };
+
   const handleLogout = () => {
     setCurrentUser(null);
     MainApi.setToken(null);
@@ -58,10 +63,6 @@ const App = () => {
 
   const handleArticleUnsave = (articleId) => {
     setSavedArticles(savedArticles.filter((article) => articleId !== article._id));
-  };
-
-  const handleLogin = () => {
-    setIsLoginPopupOpened(true);
   };
 
   const handleLoginPopupClose = () => {
@@ -122,17 +123,14 @@ const App = () => {
                 onArticleUnsave={handleArticleUnsave} />
             </Route>
 
-            <Route exact path="/saved-news" >
-              {currentUser &&
-                <SavedNewsPage
-                  articles={savedArticles}
-                  onArticleUnsave={handleArticleUnsave}
-                  onLogout={handleLogout} />
-              }
-              {!currentUser &&
-                <Redirect to="/" />
-              }
-            </Route>
+            <ProtectedRoute
+              path="/saved-news"
+              isLoggedIn={currentUser !== null}
+              component={<SavedNewsPage
+                articles={savedArticles}
+                onArticleUnsave={handleArticleUnsave}
+                onLogout={handleLogout} />}
+            />
 
             <Route path="/" >
               <Redirect to="/" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
@@ -15,12 +15,24 @@ import './MainPage.css';
 
 const MainPage = ({ savedArticles, isHeaderVisibleOnMobile, onArticleSave, onArticleUnsave, onLogin, onLogout }) => {
   const currentUser = React.useContext(CurrentUserContext);
+  const location = useLocation();
   const history = useHistory();
   const [searchText, setSearchText] = React.useState(null);
   const [isSearching, setIsSearching] = React.useState(false);
   const [foundArticles, setFoundArticles] = React.useState(null);
   const [totalArticles, setTotalArticles] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!location.state) {
+      return;
+    }
+
+    if (location.state.needToOpenLoginPopup) {
+      history.push({ state: { needToOpenLoginPopup: false } });
+      onLogin();
+    }
+  }, [location, history, onLogin]);
 
   React.useEffect(() => {
     const savedSearchText = localStorage.getItem('searchText');
