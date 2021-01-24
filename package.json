@@ -29,15 +29,11 @@
       "airbnb-base"
     ],
     "rules": {
-      "max-len": [
-        0
-      ],
-      "object-curly-newline": [
-        0
-      ],
-      "import/prefer-default-export": [
-        0
-      ]
+      "max-len": "off",
+      "operator-linebreak": "off",
+      "object-curly-newline": "off",
+      "import/prefer-default-export": "off",
+      "no-underscore-dangle": ["error", { "allow": ["_id"] }]
     }
   },
   "browserslist": {

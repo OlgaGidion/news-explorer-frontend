@@ -1,36 +1,49 @@
+import React from 'react';
 import { useHistory } from 'react-router-dom';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ButtonWired from '../ButtonWired/ButtonWired';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
-import Footer from '../Footer/Footer';
+import { groupKeywords } from '../../utils/keywordUtils';
 import logoutImageDark from '../../images/logout-dark.svg';
 import './SavedNewsPage.css';
 
-const SavedNewsPage = () => {
+const SavedNewsPage = ({ articles, onArticleUnsave, onLogout }) => {
+  const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
+
+  const handleSavedNewsPageButtonClick = () => {
+    history.push('/saved-news');
+  };
+
+  const handleMainPageButtonClick = () => {
+    history.push('/');
+  };
 
   const handleLogoutButtonClick = () => {
     history.replace('/');
+    onLogout();
   };
 
   return (
     <main>
       <Header isDark={true} isVisibleOnMobile={true}>
         <Navigation isDark={true}>
-          <a className="navigation__link navigation__link_color_dark" href="/">Главная</a>
-          <a className="navigation__link navigation__link_color_dark navigation__link_selected_dark" href="/saved-news">Сохранённые статьи</a>
-          <ButtonWired type="dark" text="Грета" image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
+          <button className="navigation__page-button navigation__page-button_color_dark" onClick={handleMainPageButtonClick}>Главная</button>
+          <button className="navigation__page-button navigation__page-button_color_dark navigation__page-button_selected_dark" onClick={handleSavedNewsPageButtonClick}>Сохранённые статьи</button>
+          <ButtonWired type="dark" text={currentUser.name} image={logoutImageDark} imageAlt="Выйти" classMix="navigation__wired-button" onClick={handleLogoutButtonClick} />
         </Navigation>
       </Header>
 
       <SavedNewsHeader
-        userName="Грета"
-        articlesCount={5}
-        keywords={['Природа', 'Автомобили', 'Дети', 'Психология']} />
+        userName={currentUser.name}
+        articlesCount={articles.length}
+        keywords={groupKeywords(articles.map((article) => article.keyword))} />
 
-      <NewsCardList />
+      <NewsCardList articles={articles} onArticleUnsave={onArticleUnsave} />
 
       <Footer />
     </main>

@@ -1,6 +1,6 @@
 import './ButtonSolid.css';
 
-const ButtonSolid = ({ text, type, disabled, classMix }) => {
+const ButtonSolid = ({ text, type, disabled, classMix, onClick }) => {
   const typeMod = `button-solid_type_${type}`;
 
   const classList = classMix
@@ -10,7 +10,8 @@ const ButtonSolid = ({ text, type, disabled, classMix }) => {
   return (
     <button
       className={classList}
-      disabled={disabled}>
+      disabled={disabled}
+      onClick={onClick}>
         {text}
     </button>
   );

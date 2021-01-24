@@ -10,28 +10,27 @@ const PopupWithForm = ({
   actionText,
   secondaryButtonText,
   inProgressText,
+  isInProgress,
   isOpen,
   isButtonDisabled,
+  error,
   onClose,
   onSubmit,
   onSecondaryButtonClick,
   children,
 }) => {
   const [buttonText, setButtonText] = React.useState(actionText);
-  const [isInProgress, setIsInProgress] = React.useState(false);
 
   React.useEffect(() => {
-    if (isOpen) {
+    if (!isInProgress) {
       setButtonText(actionText);
-      setIsInProgress(false);
     }
-  }, [isOpen, actionText]);
+  }, [isInProgress, actionText]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     setButtonText(inProgressText);
-    setIsInProgress(true);
     onSubmit();
   };
 
@@ -41,7 +40,9 @@ const PopupWithForm = ({
 
         {children}
 
-        <p className="popup-with-form__error-text">Такой пользователь уже есть</p>
+        {error !== null &&
+          <p className="popup-with-form__error-text">{error}</p>
+        }
 
         <ButtonSolid type="blue" classMix="popup-with-form__submit-button" text={buttonText} disabled={isButtonDisabled || isInProgress} />
 

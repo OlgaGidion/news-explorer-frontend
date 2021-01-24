@@ -1,10 +1,11 @@
 import React from 'react';
+import { getNumText } from '../../utils/textUtils';
 import './SavedNewsHeader.css';
 
 const SavedNewsHeader = ({ userName, articlesCount, keywords }) => {
   const headlineText = articlesCount > 0
-    ? `${userName}, у вас ${articlesCount} сохранённых статей`
-    : `${userName}, у вас нет сохранённых статей`;
+    ? `${userName}, у Вас ${articlesCount} ${getNumText(articlesCount, ['сохраненная статья', 'сохраненных статьи', 'сохрененных статей'])}`
+    : `${userName}, у Вас нет сохранённых статей`;
 
   const maxKeywords = 2;
   const tailLength = keywords.length - maxKeywords;
@@ -24,7 +25,9 @@ const SavedNewsHeader = ({ userName, articlesCount, keywords }) => {
     <div className="saved-news-header">
         <h3 className="saved-news-header__text">Сохранённые статьи</h3>
         <h2 className="saved-news-header__headline">{headlineText}</h2>
-        <p className="saved-news-header__subline">По ключевым словам: {keywordElements}</p>
+        {keywordElements.length > 0 &&
+          <p className="saved-news-header__subline">По ключевым словам: {keywordElements}</p>
+        }
     </div>
   );
 };

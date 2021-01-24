@@ -22,3 +22,14 @@
   font-size: 18px;
   color: #B6BCBF;
 }
+
+@media (max-width: 767px) {
+  .search-preloader__image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .search-preloader__subline {
+    margin-top: 12px;
+  }
+}
