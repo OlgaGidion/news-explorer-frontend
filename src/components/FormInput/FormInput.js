@@ -14,7 +14,6 @@ const FormInput = ({ text, label, name, type, placeholder, required, minLength, 
 
   const handleLabelClick = () => {
     inputRef.current.focus();
-    inputRef.current.select();
   };
 
   const handleInput = (e) => {
@@ -25,7 +24,6 @@ const FormInput = ({ text, label, name, type, placeholder, required, minLength, 
   const handleInputClick = (e) => {
     const inputElement = e.target;
     inputElement.focus();
-    inputElement.select();
   };
 
   return (
