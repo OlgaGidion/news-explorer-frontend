@@ -13,8 +13,8 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
 
   React.useEffect(() => {
     if (isOpen) {
-      setEmail('munich@mail.de');
-      setPassword('qwerty123');
+      setEmail('');
+      setPassword('');
       setIsInProgress(false);
       setError(null);
     }
@@ -92,8 +92,7 @@ const PopupLogin = ({ isOpen, onClose, onRegister, onSuccess }) => {
           name="password"
           type="password"
           placeholder="Введите пароль"
-          minLength="5"
-          maxLength="100"
+          minLength="1"
           error={inputPasswordError}
           onTextChange={handlePasswordTextChange}
           onErrorChange={handlePasswordErrorChange} />

@@ -104,7 +104,7 @@ const PopupRegister = ({ isOpen, onClose, onLogin, onSuccess }) => {
           name="password"
           type="password"
           placeholder="Введите пароль"
-          minLength="5"
+          minLength="8"
           maxLength="100"
           onTextChange={handlePasswordTextChange}
           onErrorChange={handlePasswordErrorChange} />
